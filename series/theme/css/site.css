@@ -135,10 +135,43 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 21px;
   line-height: 1.6 !important;
   text-align: justify;
-  margin: 0 40px 25px 40px;
+  margin: 0 40px 25px 15px;
+  padding-left: 25px;
+  border-left: 3px solid #1C63FB;
 }
 
+.chapter-container a {
+  color: #033aae;
+}
 
+.chapter-container a:hover {
+  color: #3d7afc;
+}
+
+.chapter-container .next-chapter {
+  font-family: Roboto;
+  text-align: center;
+  font-weight: 500;
+  font-size: 18px;
+  margin-top: 50px;
+}
+
+.footer {
+  background: #EEE;
+}
+
+.footer a {
+  color: #777 !important;
+}
+
+.footer .copy {
+  font-size: 14px;
+  display: block;
+  padding-bottom: 20px;
+  color: #555;
+  margin-top: -10px;
+  font-weight: 500;
+}
 
 
 .serif {

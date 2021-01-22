@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-  <title>The Science of Artificial Intelligence and Machine Learning</title>
+  <title>Chapter 1: An Introduction to Artificial Intelligence and Machine Learning | An Introduction to Artificial Intelligence and Machine Learning Algorithms</title>
 
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -19,8 +19,15 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400&family=Roboto:wght@300;400;500&display=swap" type="text/css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap">
 
-  <script src="https://www.googletagmanager.com/gtag/js?id=UA-90367614-1" async></script>
-  <script src="https://kit.fontawesome.com/ddc5710cc6.js"></script>
+  <script>
+    MathJax = {
+      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
 
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -28,6 +35,9 @@
     gtag('js', new Date());
     gtag('config', 'UA-90367614-1');
   </script>
+
+  <script src="https://www.googletagmanager.com/gtag/js?id=UA-90367614-1" async></script>
+  <script src="https://kit.fontawesome.com/ddc5710cc6.js"></script>
 </head>
 
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300" data-aos-easing="slide" data-aos-duration="800" data-aos-delay="0" cz-shortcut-listen="true">
@@ -50,7 +60,7 @@
     </div>
 
     <div class="site-navbar-wrap">
-      <div id="sticky-wrapper" class="sticky-wrapper" style="height: 94.5px;">
+      <div class="sticky-wrapper" style="height: 94.5px;">
         <div class="site-navbar site-navbar-target js-sticky-header" style="width: 1440px;">
           <div class="container">
             <div class="row align-items-center">
@@ -81,24 +91,24 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12 mb-3 mt-3" style="padding: 0 150px;">
-            <h1 class="text-white text-uppercase mt-3" style="font-family: Montserrat !important; font-weight: 300 !important; font-size: 32px !important;">AN INTRODUCTION TO ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING ALGORITHMS</h1>
+            <h1 class="text-white text-uppercase mt-3" style="font-family: Montserrat !important; font-weight: 200 !important; font-size: 33px !important;">AN INTRODUCTION TO ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING ALGORITHMS</h1>
             <p class="text-white mb-5 text-uppercase" style="font-family: Open Sans !important; font-weight: 100 !important; font-size: 22px !important; opacity: 0.8;">Brandon John Grenier</p>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="site-section" style="background-color: #FFF; padding-top: 90px !important;">
+    <div class="site-section" style="background-color: #FFF; padding-top: 60px;">
       <div class="container chapter-container">
         <div class="row">
           <div class="col-md-12">
-            <h1>Chapter 1: An Introduction to Artificial Intelligence and Machine Learning</h1>
+            <h1 class="heading">Chapter 1: An Introduction to Artificial Intelligence and Machine Learning</h1>
 
             <a name="sec-1"></a>
             <h2>What is Artificial Intelligence?</h2>
 
             <p>
-              First coined in 1956 by John McCarthy, <strong>Artificial Intelligence</strong> (AI) broadly describes computer systems that have the ability to perform tasks that
+              First coined in 1956 by <a href="https://en.wikipedia.org/wiki/John_McCarthy_(computer_scientist)">John McCarthy</a>, <strong>Artificial Intelligence</strong> (AI) broadly describes computer systems that have the ability to perform tasks that
               mimic human intelligence. Creating computer systems that can successfully reason, plan, represent knowledge, learn, process natural language and
               perceive are all major goals of active AI research. Artificial Intelligence can be categorized into two different types, or forms of intelligence:
             </p>
@@ -123,7 +133,7 @@
             <h2>What is Machine Learning?</h2>
 
             <p>
-              Machine Learning (ML) is a field of computer science that gives computers the ability to learn without being explicitly programmed, and specifically focuses on the
+              <a href="https://en.wikipedia.org/wiki/Arthur_Samuel">Arthur Samuel</a> popularized the term <strong>Machine Learning</strong> (ML) in 1959 as a field of computer science that gives computers the ability to learn without being explicitly programmed, and specifically focuses on the
               design and construction of algorithms that can both learn from and make predictions on data. Machine Learning is an approach towards achieving AI. A more formal definition
               of Machine Learning was produced by Tom Mitchell in 1998:
             </p>
@@ -209,10 +219,32 @@
             Dimensionality reduction reduces the number of object features or dimensions under consideration.
             Feature reduction can be achieved by feature selection, where a subset of features are selected from the existing features, or by feature extraction, where features are extracted by combining existing features.
             </p>
+
+            <div class="next-chapter">
+              <a href="chapter02.html">Chapter 2: Linear Regression with One Feature</a>
+            </div>
           </div>
         </div>
       </div>
     </div>
+
+    <div class="sticky-wrapper footer">
+      <div class="site-navbar site-navbar-target">
+            <div class="col-12">
+              <nav class="site-navigation text-center" role="navigation">
+                <div class="container">
+                  <ul class="site-menu" style="padding-left: 0;">
+                    <li><a href="https://twitter.com/BrandonJGrenier" class="pl-3 pr-3"><span class="fab fa-twitter"></span></a></li>
+                    <li><a href="https://github.com/BrandonJohnGrenier" class="pl-3 pr-3"><span class="fab fa-github"></span></a></li>
+                    <li><a href="https://linkedin.com/in/brandon-grenier" class="pl-3 pr-3"><span class="fab fa-linkedin-in"></span></a></li>
+                  </ul>
+                  <span class="copy">Copyright © 2021</span>
+                </div>
+              </nav>
+            </div>
+      </div>
+    </div>
+
     <script src="../theme/js/jquery-3.3.1.min.js"></script>
 </body>
 </html>

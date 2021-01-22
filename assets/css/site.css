@@ -74,6 +74,23 @@ h1, h2, h3, h4, h5, h6 {
   color: #3d7afc;
 }
 
+.footer {
+  background: #EEE;
+}
+
+.footer a {
+  color: #777 !important;
+}
+
+.footer .copy {
+  font-size: 14px;
+  display: block;
+  padding-bottom: 20px;
+  color: #555;
+  margin-top: -10px;
+  font-weight: 500;
+}
+
 .serif {
   font-family: "Oswald", sans-serif !important; }
 
