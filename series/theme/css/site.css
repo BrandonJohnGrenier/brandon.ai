@@ -85,16 +85,31 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0 150px;
 }
 
+.book-title-font {
+  font-family: Montserrat;
+  font-weight: 200;
+  font-size: 33px;
+}
+
+.book-title-heading {
+  font-family: Montserrat;
+  font-weight: 200;
+  font-size: 33px;
+}
+
 .chapter-container {
   padding: 0 150px;
 }
 
 @media (max-width: 980px) {
     .chapter-container {
-      padding: 0 !important;
+      padding: 0 20px !important;
     }
     .book-title {
-      padding: 0 15px !important;
+      padding: 0 20px !important;
+    }
+    .book-title-font {
+      font-size: 28px !important;
     }
 }
 
