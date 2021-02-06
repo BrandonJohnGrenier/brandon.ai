@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <title>Chapter 1: An Introduction to Artificial Intelligence and Machine Learning | An Introduction to Artificial Intelligence and Machine Learning Algorithms</title>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="shortcut icon" href="../theme/images/favicon.png" type="image/x-icon">
+
+  <link rel="stylesheet" href="../theme/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../theme/css/site.css">
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,800,300" type="text/css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400&family=Roboto:wght@300;400;500&display=swap" type="text/css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap">
+
+  <script>
+    MathJax = {
+      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-90367614-1');
+  </script>
+
+  <script src="https://www.googletagmanager.com/gtag/js?id=UA-90367614-1" async></script>
+  <script src="https://kit.fontawesome.com/ddc5710cc6.js"></script>
+</head>
+
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300" data-aos-easing="slide" data-aos-duration="800" data-aos-delay="0" cz-shortcut-listen="true">
+    <div class="sticky-wrapper" style="height: 95px;">
+      <div class="site-navbar site-navbar-target">
+          <div class="row align-items-center" style="margin-right: 0 !important;">
+            <div class="col-12">
+              <nav class="site-navigation text-right">
+                  <ul class="site-menu main-menu ">
+                    <li><a href="https://twitter.com/BrandonJGrenier" class="pl-3 pr-3"><span class="fab fa-twitter"></span></a></li>
+                    <li><a href="https://github.com/BrandonJohnGrenier" class="pl-3 pr-3"><span class="fab fa-github"></span></a></li>
+                    <li><a href="https://linkedin.com/in/brandon-grenier" class="pl-3 pr-3"><span class="fab fa-linkedin-in"></span></a></li>
+                  </ul>
+              </nav>
+            </div>
+          </div>
+      </div>
+    </div>
+
+    <div class="site-section book-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 mb-3 mt-3 book-title">
+            <h1 class="text-white text-uppercase mt-3 book-title-font">AN INTRODUCTION TO ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING ALGORITHMS</h1>
+            <p class="text-white mb-5 text-uppercase" style="font-family: Open Sans !important; font-weight: 100 !important; font-size: 22px !important; opacity: 0.8;">Brandon John Grenier</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="site-section" style="background-color: #FFF; padding-top: 60px;">
+      <div class="container chapter-container">
+        <div class="row">
+          <div class="col-md-12">
+            <h1 class="heading">Chapter 1: An Introduction to Artificial Intelligence and Machine Learning</h1>
+
+            <a name="sec-1"></a>
+            <h2>What is Artificial Intelligence?</h2>
+
+            <p>
+              First coined in 1956 by <a href="https://en.wikipedia.org/wiki/John_McCarthy_(computer_scientist)">John McCarthy</a>, <strong>Artificial Intelligence</strong> (AI) broadly describes computer systems that have the ability to perform tasks that
+              mimic human intelligence. Creating computer systems that can successfully reason, plan, represent knowledge, learn, process natural language and
+              perceive are all major goals of active AI research. Artificial Intelligence can be categorized into two different types, or forms of intelligence:
+            </p>
+
+            <p>
+              <strong>General AI</strong>, also known as <em>Strong AI</em> or <em>Full AI</em> is the canonical form of intelligence you’ll likely think about when you hear the
+              term AI – this is your Skynet and Terminators. General AI would exhibit all of the characteristics of human intelligence, but is incredibly difficult
+              to create and does not exist in any meaningful or material form today.  The creation of General AI systems is the ultimate goal for AI researchers, who reserve
+              the term General AI for machines that are capable of experiencing consciousness.
+            </p>
+
+            <p>
+              <strong>Applied AI</strong>, also known as <em>Weak AI</em> or <em>Narrow AI</em> is the most prevalent form of AI today. Unlike General AI, Applied AI exhibits very limited
+              and very specific characteristics of human intelligence, but can incredibly effective when applied to very specific types of problems. Concrete examples of
+              Applied AI include facial recognition systems, personal digital assistants, spam filters and autonomous vehicles.
+            </p>
+
+
+
+            <a name="sec-2"></a>
+            <h2>What is Machine Learning?</h2>
+
+            <p>
+              <a href="https://en.wikipedia.org/wiki/Arthur_Samuel">Arthur Samuel</a> popularized the term <strong>Machine Learning</strong> (ML) in 1959 as a field of computer science that
+              gives computers the ability to learn without being explicitly programmed, and specifically focuses on the design and
+              construction of algorithms that can both learn from and make predictions on data. <em>Machine Learning is an approach towards achieving AI.</em> A more
+              formal definition of Machine Learning was produced by Tom Mitchell in 1998:
+            </p>
+
+            <blockquote>
+              A computer program is said to <strong>learn</strong> from experience E with respect to some task T and some performance measure P, if its performance on T, as measured by P,
+              improves with experience E.
+            </blockquote>
+
+            <p>
+              Simply put, if a computer program can improve the performance of a task by using previous experience you can say that the program has <em>learned</em> from the experience.
+            </p>
+
+            <p>
+              The ability for software to learn and improve from experience is significantly different from how traditional software is written. ML enables the development new
+              types of applications that would either be impractical or impossible if the same application were to be programmed explicitly using traditional software engineering approaches.
+            </p>
+
+
+
+            <a name="sec-3"></a>
+            <h2>Machine Learning Algorithmic Strategies</h2>
+
+            <p>
+              There are generally considered to be three fundamental algorithmic strategies, or algorithm “families” in machine
+              learning. In this section we’ll provide an overview of how these strategies work along some insight into the
+              problems they intend to solve.
+            </p>
+
+            <h3>Supervised Learning: Algorithms that learn to recognize relationships</h3>
+            <p>
+              Supervised learning is a machine learning strategy that uses existing pairs of input and output data with an <em>expectation</em> or
+              <em>hypothesis</em> that some form of relationship exists between the input and output. A supervised learning algorithm trained with
+              a set of input and output pairs (a <strong>training set</strong>) discovers relationships between the inputs and outputs, and subsequently
+              makes <em>predictions</em> with novel inputs that it has not been exposed to before.
+            </p>
+
+            <p>
+              Spam filtering is a practical application of supervised learning – in this example, a data pair would consist of an
+              email as an input and an assessment (i.e. spam or legitimate) as an output.
+            </p>
+
+            <p>
+              A spam filtering algorithm needs to be trained with sets of emails that have been assessed as spam and sets of emails that
+              have been assessed as legitimate. Data pairs that have a defined or assigned value for the output data is referred to as
+              <strong>labelled data</strong>. It is the use of labelled data that characterizes supervised learning, and differentiates it
+              from unsupervised and reinforcement learning. Supervised learning algorithms must be trained with labelled data in order to
+              act as useful predictive tools.
+            </p>
+
+            <p>
+              Supervised learning is effective at solving problems where <em>you cannot meaningfully or accurately express the relationship(s)
+              in your data with a discrete set of rules or heuristics</em>. While you might quickly decide whether a new email in your inbox
+              is spam or not, it’s difficult to develop traditional software with an explicit and concrete set of rules to achieve the
+              same outcome. Modern supervised machine learning algorithms offer a practical algorithmic solution to these problem spaces.
+            </p>
+
+
+            <h3>Unsupervised Learning: Algorithms that learn to discover patterns</h3>
+            <p>
+              Unsupervised learning is an effective strategy for solving discovery problems; these algorithms attempt to discover novel patterns or
+              structures in data that would be impractical or even impossible using traditional programming techniques.
+            </p>
+            <p>
+              The discovery of patterns is primarily used to group, cluster or segment data. For example, unsupervised learning is
+              a highly effective strategy for image recognition. Unsupervised learning algorithms won’t make predictions like
+              “this is an image of a cat”, “this is an image of a dog” or “this is an image of a person”. Instead, the algorithm
+              will predict the most likely <em>group</em> an image belongs to, based on the patterns discovered in the image. The resulting
+              clusters or groups of images that come out of an unsupervised learning algorithm are <em>unlabeled</em>; it would be up to a
+              person to label the clusters as images of dogs, cats and people.
+            </p>
+
+            <h3>Reinforcement Learning: Adaptive algorithms that learn from their environment</h3>
+            <p>
+            Reinforcement learning is a modern machine learning strategy that makes use of goal-oriented algorithms which
+            learn how to accomplish an objective over many steps. For example, reinforcement learning algorithms are well
+            suited to maximize the points won in a game over many moves. These algorithms are penalized when they make the
+            wrong decisions and rewarded when they make the right ones, which is why these types of algorithms are called
+            reinforcement learning algorithms.
+            </p>
+
+            <p>
+            Reinforcement learning algorithms are not provided with training sets ahead of time. In the absence of training data,
+            these algorithms learn from experience by collecting data from their environment through trial-and-error; they observe
+            and dynamically adapt to the environment around them.
+            </p>
+
+            <p>
+            In this respect, reinforcement learning algorithms share a similar data-driven learning approach as supervised
+            learning algorithms; while supervised learning algorithms learn from data ahead of time, reinforcement
+            learning algorithms learn from data as it becomes available in their environment.
+            </p>
+
+            <p>
+            The ability for software to dynamically learn from and adapt to changes in an environment makes reinforcement
+            learning algorithms well suited for advanced problems spaces like autonomous vehicle design, robotics and supply chain
+            optimization. Reinforcement learning is an exciting and advanced area of research in machine learning, but a few
+            practical challenges have to be overcome in order to successfully implement these types of algorithms in real-world
+            applications.
+            </p>
+
+
+
+            <a name="sec-4"></a>
+            <h2>Machine Learning Predictive Models</h2>
+
+            <p>
+            Each machine learning algorithmic strategy uses one or more concrete <strong>predictive models</strong> - a predictive
+            model is a specific solution to the statistical analysis of historical data to produce a model that predicts or identifies
+            future behavior.
+            </p>
+
+            <p>
+            Supervised learning makes use of <strong>classification models</strong> and <strong>regression models</strong>, and
+            unsupervised learning makes use of <strong>clustering models</strong> and <strong>dimensionality reduction models</strong>. This
+            section provides a brief overview of each of these predictive models and the problems they aim to solve; you’ll learn more
+            about these models as well as the algorithms that underpin them in upcoming chapters.
+            </p>
+
+            <h3>Classification: Predict a discrete value</h3>
+            <p>
+              Classification models work by predicting discrete values from well-defined, finite sets of possible outcomes. In other
+              words, classification algorithms predict the best group for an object, given all of the possible groups an algorithm
+              is allowed to choose from. For example, a spam filtering algorithm predicts which group an email best belongs to: a
+              spam email group, or a legitimate email group. You can say that the goal of a spam filtering algorithm is to classify
+              emails.
+            </p>
+
+            <h3>Regression: Predict a continuous value</h3>
+            <p>
+              Regression models work by predicting continuous values. A continuous value is a real value, such as an integer or
+              floating point number. Regression algorithms will often predict quantities, such as amounts and sizes. For example,
+              regression models may predict whether a house sells for a specific value, or if a stock to rises or falls to a specific
+              price.
+            </p>
+
+            <h3>Clustering: Discover new patterns and relationships in your data</h3>
+            <p>
+              Clustering assigns objects to groups while ensuring that objects in different groups are not similar to each
+              other. Clustering aims to discover the hidden patterns in, and structure of your data. Each object is described by
+              a set features, or characteristics.
+            </p>
+
+            <h3>Dimensionality Reduction: Reduce the number of variables in your data</h3>
+            <p>
+              Dimensionality reduction is fairly popular and a has a number of practical applications within the domain of
+              machine learning itself. Dimensionality reduction models reduce the number of features, variables or
+              dimensions under consideration in statistical ML models. Feature reduction can be achieved by feature selection, where
+              a subset of features are selected from the existing features, or by feature extraction, where features are
+              extracted by combining existing features.
+            </p>
+
+
+            <div class="next-chapter">
+              <a href="chapter02.html">Chapter 2: Linear Regression with One Feature</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sticky-wrapper footer">
+      <div class="site-navbar site-navbar-target">
+            <div class="col-12">
+              <nav class="site-navigation text-center" role="navigation">
+                <div class="container">
+                  <ul class="site-menu" style="padding-left: 0;">
+                    <li><a href="https://twitter.com/BrandonJGrenier" class="pl-3 pr-3"><span class="fab fa-twitter"></span></a></li>
+                    <li><a href="https://github.com/BrandonJohnGrenier" class="pl-3 pr-3"><span class="fab fa-github"></span></a></li>
+                    <li><a href="https://linkedin.com/in/brandon-grenier" class="pl-3 pr-3"><span class="fab fa-linkedin-in"></span></a></li>
+                  </ul>
+                  <span class="copy">Copyright © 2021</span>
+                </div>
+              </nav>
+            </div>
+      </div>
+    </div>
+
+    <script src="../theme/js/jquery-3.3.1.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <title>Chapter 2: Linear Regression with One Feature | An Introduction to Artificial Intelligence and Machine Learning Algorithms</title>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="shortcut icon" href="../theme/images/favicon.png" type="image/x-icon">
+
+  <link rel="stylesheet" href="../theme/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../theme/css/site.css">
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,800,300" type="text/css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400&family=Roboto:wght@300;400;500&display=swap" type="text/css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap">
+
+  <script>
+    MathJax = {
+      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-90367614-1');
+  </script>
+
+  <script src="https://www.googletagmanager.com/gtag/js?id=UA-90367614-1" async></script>
+  <script src="https://kit.fontawesome.com/ddc5710cc6.js"></script>
+</head>
+
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300" data-aos-easing="slide" data-aos-duration="800" data-aos-delay="0" cz-shortcut-listen="true">
+  <div class="sticky-wrapper" style="height: 95px;">
+    <div class="site-navbar site-navbar-target">
+        <div class="row align-items-center" style="margin-right: 0 !important;">
+          <div class="col-12">
+            <nav class="site-navigation text-right">
+                <ul class="site-menu main-menu ">
+                  <li><a href="https://twitter.com/BrandonJGrenier" class="pl-3 pr-3"><span class="fab fa-twitter"></span></a></li>
+                  <li><a href="https://github.com/BrandonJohnGrenier" class="pl-3 pr-3"><span class="fab fa-github"></span></a></li>
+                  <li><a href="https://linkedin.com/in/brandon-grenier" class="pl-3 pr-3"><span class="fab fa-linkedin-in"></span></a></li>
+                </ul>
+            </nav>
+          </div>
+        </div>
+    </div>
+  </div>
+
+  <div class="site-section book-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 mb-3 mt-3 book-title">
+          <h1 class="text-white text-uppercase mt-3 book-title-font">AN INTRODUCTION TO ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING ALGORITHMS</h1>
+          <p class="text-white mb-5 text-uppercase" style="font-family: Open Sans !important; font-weight: 100 !important; font-size: 22px !important; opacity: 0.8;">Brandon John Grenier</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-section" style="background-color: #FFF; padding-top: 60px;">
+    <div class="container chapter-container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1 class="heading">Chapter 2: Linear Regression with One Feature</h1>
+
+          <p>
+            Linear regression is one of the most well-known and well understood algorithms in machine learning. In this
+            chapter you will learn about the linear regression algorithm and how it works in detail.
+          </p>
+          <p>
+            We’ll begin by making some entirely intuitive predictions – no math or algorithms. We’ll formalize this intuition by
+            introducing key machine learning concepts, mathematics and terminology to get you ready to dive into your first machine
+            learning algorithm.
+          </p>
+          <p>
+            Next, you’ll learn how to build a supervised machine learning algorithm that will be able to make predictions using a
+            single variable, or feature. Linear regression that uses a single variable is referred to as univariate linear
+            regression.
+          </p>
+          <p>
+            Going through this exercise will introduce you to a number of foundational concepts, algorithms, terminology and mathematics that are used throughout machine learning and the remainder of this book, so make sure that you have a good understanding of the material in this chapter before moving on.
+          </p>
+
+
+
+          <a name="sec-1"></a>
+          <h2>Intuitive Linear Regression</h2>
+          <p>
+            The first prediction we’re going to make will be an intuitive one – there’s no math or algorithms involved at this point,
+            just a bit of guesswork. Our predictions will be reasonable, but not perfect and we’ll improve on this shortly.
+          </p>
+          <p>
+            By the end of this section, you should understand each of the steps in order to make a simple prediction, and have
+            an appreciation of where machine learning algorithms will replace our intuition.
+          </p>
+
+          <h3>Problem Space: Predicting the price of a home in Richmond</h3>
+          <p>
+           You’d like to buy a home for yourself and your family in the inner city suburb of Richmond, Melbourne. Space is a big
+           consideration for you, so you’re looking for a home that’s at least 150 square meters (that’s around 1700 square feet)
+           in size. You’ve done your homework and collected a few data points from recent house sales in the area. Based on this
+           data, you want to figure out how much you might be expected to pay for a 150 square meter home in Richmond.
+          </p>
+          <p>
+            For the sake of this exercise, we are going to assume that the price of a house is simply dependent on the size of
+            the house, and no other factors.  We’ll also assume that the only data you were able to collect was the sale price
+            of the house and size of the house, and no other data.
+          </p>
+
+          <h3>Step 1: Plot the data</h3>
+          <p>
+          As a first step, we’ll plot all of the house sales data that you collected onto a graph. Figure 1 presents
+          a graph of your house sales data, with the house size (in m2) on the x axis and the house price on the y axis.
+          </p>
+
+          <figure>Figure 1: House price as a function of house size</figure>
+          <img src="images/chapter2/figure1.png"></img>
+
+          <h3>Step 2: Fit the data</h3>
+          <p>
+            With our house sales data plotted, we will draw a straight line that fits the data as best as possible so
+            that we can begin making predictions. We’re going to use our best judgement here and draw a straight line that
+            seems to fits the data reasonably well. Figure 2 displays our straight line overlaying the house sales data.
+          </p>
+
+          <figure>Figure 2: Using judgement to draw a line that best fits the housing data</figure>
+          <img src="images/chapter2/figure2.png"></img>
+
+          <p>
+            While this won’t a be perfect fit, it’s certainly within reason and at least appears to fit the data quite
+            well. The better this line fits your data, the better your predictions will be.
+          </p>
+
+          <h3>Step 3: Make predictions</h3>
+          <p>
+            To predict the price for a 150m2 house, draw a vertical line from the 150m2 value located on the x axis
+            until it intersects with the line, then come across to the y axis to get the predicted price. Figure 3
+            below will provide you with a visual demonstration of our prediction.
+          </p>
+
+          <figure>Figure 3: Predicting the price of a 150m2 house</figure>
+          <img src="images/chapter2/figure3.png"></img>
+
+          <p>
+            We can now predict that it will cost around $900,000 to buy a 150m2 house in Richmond based on the data we collected
+            from previous home sales. As an exercise for the reader, use the figure above to predict the price of a 200m2
+            house and a 300m2 house.
+          </p>
+
+          <p>
+          This was our first prediction as well as an intuitive introduction to linear regression. Let’s summarize
+          what we’ve just done to make our first prediction:
+          </p>
+
+          <ol>
+            <li>We collected data</li>
+            <li>We plotted the data</li>
+            <li>We drew a straight line that best fits the data</li>
+            <li>We used the line to make predictions for data we haven’t seen before.</li>
+          </ol>
+
+          <p>
+            Hopefully you found this to be a reasonably straightforward process and a common sense approach towards
+            making a simple prediction from a set of data. Please note the italicized points 2 and 3 above; the goal
+            for the remainder of this chapter will be to revise steps 2 and 3 to use an automated, algorithmic
+            approach for prediction instead of a manual, intuitive one.
+          </p>
+
+
+          <a name="sec-2"></a>
+          <h2>The Hypothesis Function: Model your problem space</h2>
+
+          <p>
+            With our first intuitive prediction complete, it’s time to start formalizing our intuition so that we can begin
+            making predictions algorithmically. In this section we introduce you to the concept of a hypothesis function, and
+            define the hypothesis function that we will use in linear regression.
+          </p>
+
+          <p>
+          The hypothesis function h describes any function that is used to fit data and make predictions. In other words, the
+          hypothesis function is a function that acts as an effective model, or proxy for your data. It is the responsibility
+          of the AI/ML designer to select the most appropriate hypothesis function to effectively model the available
+          training data. Consequently, this will be one of the first activities an AI/ML designer will undertake when building
+          machine learning algorithms.
+          </p>
+
+          <p>
+          Our housing data appeared to have a linear relationship, so we used a linear function to model this
+          relationship. Problems spaces like population growth and infection rates may best be modelled with exponential
+          functions; predicting yearly fluctuations in global temperature could potentially be modelled with sinusoidal functions;
+          predicting earthquake behavior could be modelled with logarithmic functions.
+          </p>
+
+          <p>
+          Figure 4 below provides a few examples of functions that can be used as a hypothesis function to effectively fit the
+          shape of your data and model your problem space.
+          </p>
+
+          <figure>Figure 4: Examples of functions at your disposal to model your problem space</figure>
+          <img src="images/chapter2/figure4.png"></img>
+
+          <h3>The Linear Regression Hypothesis Function</h3>
+
+          <p>
+          The linear regression algorithm uses a linear function as it’s hypothesis function, and is defined as:
+          </p>
+
+          <p><strong>h(x) = &Theta;<sub>0</sub> + &Theta;<sub>1</sub>x</strong></p>
+
+          <p>
+          This symbol Θ is called theta. Note that the hypothesis function h(x) is just a slightly rebranded linear function;
+          these are simply the conventions used in machine learning, so we’ll stick with them – just remember that’s it just a
+          regular linear function.
+          </p>
+
+          <p>
+          With the linear regression hypothesis function defined, we can now define the objective of linear regression: Given
+          a training set, produce a hypothesis function h so that h(x) is a good predictor for y.
+          </p>
+
+          <p>
+          More concretely, the objective of the linear regression algorithm is to learn and discover the most appropriate values
+          for Θ0 and Θ1 so that the hypothesis function fits our training data as closely as possible, resulting in the
+          most accurate predictions.
+          </p>
+
+          <p>
+          What do we mean by good predictor exactly? In the next section provide a concrete definition of a good predictor, and
+          we also introduce the cost function as a means of quantifying good predictors.
+          </p>
+
+
+
+          <a name="sec-3"></a>
+          <h2>The Cost Function: Get feedback on model performance</h2>
+
+          <p>
+          A good predictor is one that most effectively minimizes the difference between the predicted values h(x) and the
+          observed values y for all values of x in a training set. A cost function quantifies this difference to estimate
+          how models are performing.
+          </p>
+
+          <p>
+          The cost function is an incredibly important tool in machine learning, as it acts as the feedback mechanism for
+          machine learning algorithms. The ability to receive and adapt to feedback is one of the foundational characteristics
+          of machine learning algorithms.
+          </p>
+
+          <p>
+          The following cost function pseudo-algorithm is used to quantify the performance of a model (i.e. a hypothesis function):
+          </p>
+
+          <ol>
+            <li>For each instance in the training set, calculate the difference between the predicted value h(x) and the observed value y.
+            <li>Sum up all of the differences.
+            <li>Divide the total difference by the size of the training set.
+          </ol>
+
+          <p>
+          The cost function outputs the average difference between all predictions and observations in a training set. The
+          closer this value is to zero, the better a model is at making predictions. If the value is equal to zero, it
+          means that a model perfectly predicts observations.
+          </p>
+
+          <p>
+          Now that you have an understanding of how a cost function works,  we’ll derive the mathematical definition of the
+          cost function step-by-step:
+          </p>
+
+          <p>
+          Step 1: For each instance in the training set, calculate the difference between the predicted
+          value h(x) and the observed value y.
+          </p>
+
+          $$h(x_{i}) - y_{i}$$
+
+          <p>
+          Where the superscript (i) refers to a specific training instance in the training set. In this step
+          we’re simply subtracting the observed value y from the predicted value h(x) for a specific training instance i.
+          </p>
+
+          <p>Step 2: Sum up all the differences.</p>
+
+          $$\displaystyle \sum _{i=1}^m \left (h (x_{i}) - y_{i} \right)$$
+
+          <p>
+            Where m refers to the size of the training set. Please note that the summation for the training set
+            is 0-indexed (i=0). You may see training sets 1-indexed (i=1) in some literature.
+          </p>
+
+          <p>Step 3: Divide the total difference by the size of the training set:</p>
+
+          $$\dfrac {1}{m} \displaystyle \sum _{i=1}^m \left (h (x_{i}) - y_{i} \right)$$
+
+          <p>
+            What we’ve just derived in step 3 is a perfectly usable cost function. Although we could use the function
+            as-is, we are going to make two small modifications to the function so that it’s a bit simpler to implement
+            in practice. The next section describes the modifications and the benefits of making them.
+          </p>
+
+          <p>The Cost Function</p>
+
+          <p>
+          This is the formal definition of the cost function, which may also be referred to as the squared error function or
+          mean error function:
+          </p>
+
+          $$\dfrac {1}{2m} \displaystyle \sum _{i=1}^m \left (h (x_{i}) - y_{i} \right)^2$$
+
+          <p>
+            It’s important to note that the formal definition of the cost function shown above and the cost function derived
+            in step 3 are functionally and materially identical. Using either of these functions will provide a consistent
+            and correct outcome. The formal definition happens to be simpler to implement in software, and we like simple.
+          </p>
+
+          <p>
+            First, the error component (the difference between the predicted value and observed value) has been squared.
+            Squaring always ensures that we have a positive number; for example 42 and -42 are both equal to 16. A programmatic
+            implementation of the cost function only cares about the magnitude of error - getting rid of negatives
+            removes a bit of complexity in dealing with both positive and negative numbers.
+          </p>
+
+          <p>
+            Second, the cost function is multiplied by ½ - this is a practical change to restore balance to the cost function.
+            Since the error component has been squared, we needed to add a term to make sure the function remains
+            consistent when derivatives of this function are taken. Since the derivative of x2 is 2x, so multiplying by 1/2
+            cancels out the effect of the exponent.
+          </p>
+
+          <p>
+            Lastly, we substitute the reference to our hypothesis function h(xi) with the linear regression hypothesis function that we
+            introduced previously. This is the fully expanded cost function that we will use in the linear regression algorithm:
+          </p>
+
+          $$J(\theta_0, \theta_1) = \dfrac {1}{2m} \displaystyle \sum _{i=1}^m \left (\theta_0 + \theta_1x_{i} - y_{i} \right)^2$$
+
+          <p>
+            The cost function is conventionally defined as J, so J(Θ0, Θ1) is a function that will produce a performance measure for
+            specific values of Θ0 and Θ1.
+          </p>
+
+          <p>
+            The linear regression algorithm will choose values for Θ0 and Θ1 so that J(Θ0, Θ1) produces the smallest possible
+            output. By way of convention, we want our machine learning algorithm to minimize J(Θ0, Θ1).
+          </p>
+
+          <p>
+          Before we move on to minimizing J(Θ0, Θ1), let’s work through a concrete example with the cost function that we’ve
+          just derived.
+          </p>
+
+
+          <h3>The Cost Function in Practice</h3>
+          <p>
+          To get a better appreciation of the cost function, we’ll run through an exercise comparing the performance of two different linear regression hypothesis functions. In figure 5 below, I’ve plotted the function h(x) = 3 + 11x, the function h(x) = 1 + 5x and a training set consisting of five data points. The data points for our training set are as follows:
+          </p>
+
+          ■(x&y@5&30@6&40@7&50@8&60@9&70)
+
+          <figure>Figure 5: Comparing two linear regression hypothesis functions for predive performance</figure>
+          <img src="images/chapter2/figure5.png"></img>
+
+          <p>
+          We can assert that the function h(x) = 1 + 5x is a better fit to the data than the function h(x) = 3 + 11x by visual
+          inspection alone, but we’ll generate the cost for each of these hypothesis functions to get an objective measure.
+          </p>
+
+          <p>
+          Table 1 and Table 2 below show the work for calculating the cost functions. The final line item in each table (Cost) is
+          calculated by taking the total difference and multiplying by 1/2m, or 1/10 since there are 5 instances in our training
+          set.
+          </p>
+
+          <figure>Table 1: Calculating the cost for h(x) = 1 + 5x</figure>
+          <table>
+            <tr>
+              <td>x</td>
+              <td>Predicted Value</td>
+              <td>Observed Value</td>
+              <td>Difference</td>
+              <td>Squared Difference</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>26</td>
+              <td>30</td>
+              <td>-4</td>
+              <td>16</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>31</td>
+              <td>40</td>
+              <td>-9</td>
+              <td>81</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>36</td>
+              <td>50</td>
+              <td>-14</td>
+              <td>196</td>
+            </tr>
+          </table>
+
+          <figure>Table 2: Calculating the cost for h(x) = 3 + 11x</figure>
+          <table>
+            <tr>
+              <td>x</td>
+              <td>Predicted Value</td>
+              <td>Observed Value</td>
+              <td>Difference</td>
+              <td>Squared Difference</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>26</td>
+              <td>30</td>
+              <td>-4</td>
+              <td>16</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>31</td>
+              <td>40</td>
+              <td>-9</td>
+              <td>81</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>36</td>
+              <td>50</td>
+              <td>-14</td>
+              <td>196</td>
+            </tr>
+          </table>
+
+          <p>
+            By going through this exercise, we have been able to show that J(1, 5) has a cost of 123.0 and that J(3,11) has a cost
+            of 451.0. We can new objectively assert that h(x) = 1 +5x is a better predictor for our observed
+            data than h(x) = 3 + 11x.
+          </p>
+
+          <p>
+            Given a perfect predictor has a cost of 0, the data also suggests that there are more optimal values for Θ0 and Θ1.
+            As an exercise for the reader, find values for Θ0 and Θ1 that would be a better predictor than (1, 5) and run
+            through the exercise above to quantify how much better your function performs. Going through the exercise should
+            demonstrate that even though the cost function might look a bit intimidating, it’s quite easy to work with.
+          </p>
+
+          <p>
+            We now have the means to define our model and get feedback on its performance. The final step is to discover
+            the best performing model to act as the predictor for our data. In the next section we introduce the
+            gradient descent algorithm, which will provide us with the means to minimize J(Θ0, Θ1) efficiently.
+          </p>
+
+
+          <h2>The Gradient Descent Algorithm: Use feedback to find the best predictor</h2>
+
+          <p>
+            The gradient descent algorithm is a general purpose algorithm that has a number of practical applications
+            in machine learning. It has broad applicability in machine learning as the gradient descent algorithm provides
+            an efficient means to minimize functions. The cost function has provided us with the ability to quantify the
+            effectiveness of a model, and with that feedback the gradient descent algorithm will find the minimal cost for our
+            model – put simply, gradient descent will find the values of Θ0 and Θ1 that will act as the best predictor for
+            our model.
+          </p>
+
+          <p>
+            By the end of this section you should have a good understanding of how the gradient descent algorithm works, and
+            appreciate how the algorithm solves minimization problems.
+          </p>
+
+
+          <h3>Intuitive Gradient Descent</h3>
+          <p>
+            Before we define the gradient descent algorithm, let’s first get an intuitive understanding of how the gradient descent
+            algorithm works and appreciate its limitations. The gradient descent algorithm is effective at finding local minima -
+            the smallest values of a function, in and around a local area of a function.
+          </p>
+          <p>
+            Figure 6 below presents a function with a couple examples of the gradient descent algorithm in action:
+          </p>
+
+          <figure>Figure 6: The gradient descent algorithm - discovering minima by intuition</figure>
+          <img src="images/chapter2/figure6.png"></img>
+
+          <p>
+          Imagine this function is a mountain, and you’re standing where the green star is. A storm has rolled in, and visibility
+          is poor – you can only see a few steps in front of you. You need to head to the base of the mountain as soon as you
+          can to ride out the storm in safety.
+          </p>
+
+          <p>
+          How will you get down? The approach described below acts as a good analogy for the behavior of the gradient descent
+          algorithm.
+          </p>
+
+          <ol>
+            <li>You look around, and find a new location that is lower than your current location.</li>
+            <li>You take a few steps in the direction of the new location and stop.</li>
+            <li>From the new location, you repeat steps 1 and 2 until you can no longer find a location that is lower; in this case you’ve reached (as far as you know) the base of the mountain – the green circle in the figure.</li>
+          </ol>
+
+          <p>
+          One thing you may have immediately noticed going through this exercise is that we did not reach the base of the
+          mountain when we started from the green star; this is an example of a local minimum. Had we started the same exercise
+          from the blue star, we would have reached the base of the mountain.
+          </p>
+
+          <p>
+          The conclusion we can draw from this exercise is that the gradient descent algorithm is not well suited for minimizing
+          functions that have more than one local minima, since the result you receive would be highly dependent on your
+          initial starting position – you would never know if you truly minimized the function. The gradient descent
+          algorithm should only be used to minimize functions that have a single, global minima.
+          </p>
+
+          <p>
+          The good news is that the linear regression cost function does have a single global minima, so it’s well suited to
+          be minimized by the gradient descent algorithm. We aren’t going to explain why linear regression cost functions
+          have a single global minima, but we are going to present a 3D visualization of the cost function as a function of
+          Θ0 and Θ1 so you can appreciate the actual terrain our gradient descent algorithm will traverse.
+          </p>
+
+          <figure>Figure 7: J(Θ0, Θ1) as a function of Θ0  and Θ1</figure>
+          <img src="images/chapter2/figure7.png"></img>
+
+          <p>
+            This graph presents cost J(Θ0, Θ1) as a function of both Θ0 and Θ1, and represents the actual topology that our
+            gradient descent algorithm will navigate - it’s pretty cool. In fact, all linear regression cost functions will end
+            up with this convex shape, which is why we can use the gradient descent algorithm to minimize linear regression cost
+            functions.
+          </p>
+
+          <p>
+            High areas shown in red represent high costs, and are consequently bad predictors. Low areas in shown in blue
+            represent low costs, and are consequently good predictors. The gradient descent algorithm will find the lowest point
+            on this graph, which also means that it will find the best predictor.
+          </p>
+
+          <h3>The Gradient Descent Algorithm</h3>
+
+          <p>
+            While the pseudo-algorithm for walking down a mountain was quite straightforward, transcribing this concept
+            algorithmically is a little less straightforward; we’ll break down the gradient descent algorithm and show that
+            it’s simply a formal representation of our intuition. The definition of the gradient descent algorithm is as follows:
+          </p>
+
+          Repeat until convergence, for j = 0 and j = 1 {
+              θ_j ∶= θ_j- α ∂/(∂θ_j ) J(θ_0,θ_1)
+          }
+
+          <p>
+            There are a few new terms in the gradient descent algorithm to get your head around. Before we define these new terms,
+            Figure 8 presents the gradient descent algorithm with an overlay of the concepts and intuition in our mountain analogy;
+            this should help provide a bit of context around how the algorithm works in practice.
+          </p>
+
+          <figure>Figure 8: The gradient descent algorithm with an overlay of the mountain analogy</figure>
+          <img src="images/chapter2/figure8.png"></img>
+          
+</html>
