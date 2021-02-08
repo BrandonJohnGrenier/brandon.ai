@@ -73,48 +73,54 @@
         <div class="col-md-12">
           <h1 class="heading">Chapter 2: Linear Regression with One Feature</h1>
 
-          <p>
-            Linear regression is one of the most well-known and well understood algorithms in machine learning. In this
-            chapter you will learn about the linear regression algorithm and how it works in detail.
-          </p>
-          <p>
-            We’ll begin by making some entirely intuitive predictions – no math or algorithms. We’ll formalize this intuition by
-            introducing key machine learning concepts, mathematics and terminology to get you ready to dive into your first machine
-            learning algorithm.
-          </p>
-          <p>
-            Next, you’ll learn how to build a supervised machine learning algorithm that will be able to make predictions using a
-            single variable, or feature. Linear regression that uses a single variable is referred to as univariate linear
-            regression.
-          </p>
-          <p>
-            Going through this exercise will introduce you to a number of foundational concepts, algorithms, terminology and mathematics that are used throughout machine learning and the remainder of this book, so make sure that you have a good understanding of the material in this chapter before moving on.
-          </p>
+        <p>
+          Linear regression is one of the simplest and most well understood algorithms in machine learning, and the
+          first regression model algorithm that we’ll cover in detail. Regression models are used in supervised learning
+          strategies to predict continuous values; in this chapter we’ll develop a linear regression algorithm to predict
+          the price of real estate in Melbourne, Australia.
+        </p>
+
+        <p>
+          As a practical introduction to linear regression, we’ll begin by making predictions <em>intuitively</em> – no math or algorithms
+          will be involved, just a bit of guesswork. We’ll then formalize this intuition by introducing key machine learning concepts, mathematics
+          and algorithms that underpin linear regression. By the end of this chapter, you will have all of the tools you need to build your own linear
+          regression machine learning algorithm.
+        </p>
+
+        <p>
+          As hinted by the chapter title, we’re going to build a linear regression algorithm that uses a single variable, or
+          <em>feature</em>. Linear regression that uses a single variable is referred to as <strong>univariate linear regression</strong>.
+          Due to its simplicity, univariate linear regression serves as a fantastic technical introduction to foundational machine learning
+          concepts, models and mathematics. Although the machine learning algorithms in upcoming chapters will increase in
+          complexity and sophistication, they effectively iterate on the foundations we introduce in this chapter.
+        </p>
+
 
 
 
           <a name="sec-1"></a>
           <h2>Intuitive Linear Regression</h2>
           <p>
-            The first prediction we’re going to make will be an intuitive one – there’s no math or algorithms involved at this point,
-            just a bit of guesswork. Our predictions will be reasonable, but not perfect and we’ll improve on this shortly.
-          </p>
-          <p>
-            By the end of this section, you should understand each of the steps in order to make a simple prediction, and have
-            an appreciation of where machine learning algorithms will replace our intuition.
+            The first prediction we’re going to make using linear regression will be an <em>intuitive</em> one – there’s no
+            math or algorithms involved at this point, just a bit of guesswork. As a consequence of this guesswork our predictions
+            will be reasonable, but not perfect - we’ll improve on the efficacy of our predictions shortly.
           </p>
 
-          <h3>Problem Space: Predicting the price of a home in Richmond</h3>
+
+          <h3>Predicting the price of a home in Melbourne, Australia</h3>
           <p>
-           You’d like to buy a home for yourself and your family in the inner city suburb of Richmond, Melbourne. Space is a big
-           consideration for you, so you’re looking for a home that’s at least 150 square meters (that’s around 1700 square feet)
-           in size. You’ve done your homework and collected a few data points from recent house sales in the area. Based on this
-           data, you want to figure out how much you might be expected to pay for a 150 square meter home in Richmond.
+            Let’s assume that you would like to buy a home in Melbourne’s inner city suburb of Richmond – more specifically,
+            you’re looking for a home that’s going to be around 150 square meters in size. For the sake of this exercise, we
+            are going to assume that the price of a house is entirely dependent on a single variable, or <em>feature</em> - the
+            size of the house.
           </p>
           <p>
-            For the sake of this exercise, we are going to assume that the price of a house is simply dependent on the size of
-            the house, and no other factors.  We’ll also assume that the only data you were able to collect was the sale price
-            of the house and size of the house, and no other data.
+            You’ve done some homework and collected data from twelve recent house sales in the area, and each data point you
+            collected consists of the sale price and size of each home. Based on this data, you want to estimate how much you
+            might pay for a 150 square meter home in Richmond.
+          </p>
+          <p>
+            How might you go about doing this?
           </p>
 
           <h3>Step 1: Plot the data</h3>
@@ -568,5 +574,5 @@
 
           <figure>Figure 8: The gradient descent algorithm with an overlay of the mountain analogy</figure>
           <img src="images/chapter2/figure8.png"></img>
-          
+
 </html>
