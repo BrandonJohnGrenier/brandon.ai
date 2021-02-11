@@ -217,9 +217,10 @@ img {
 .chapter-container figure {
   font-weight: bold;
   color: #111;
-  font-size: 15px;
+  font-size: 17px;
   display: block;
-  padding-bottom: 10px;
+  padding-bottom: 5px;
+  font-family: PT-Serif;
 }
 
 .footer {

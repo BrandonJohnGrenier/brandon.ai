@@ -101,32 +101,31 @@
           <a name="sec-1"></a>
           <h2>Intuitive Linear Regression</h2>
           <p>
-            The first prediction we’re going to make using linear regression will be an <em>intuitive</em> one – there’s no
-            math or algorithms involved at this point, just a bit of guesswork. As a consequence of this guesswork our predictions
-            will be reasonable, but not perfect - we’ll improve on the efficacy of our predictions shortly.
+            The first prediction we’re going to make using linear regression will be an intuitive one – there’s no math
+            or algorithms involved at this point, just a bit of guesswork. As a consequence of this guesswork our predictions
+            will be <em>reasonable</em>, but not perfect - we’ll improve on our predictive ability as we formalize our intuition.
           </p>
-
 
           <h3>Predicting the price of a home in Melbourne, Australia</h3>
           <p>
-            Let’s assume that you would like to buy a home in Melbourne’s inner city suburb of Richmond – more specifically,
-            you’re looking for a home that’s going to be around 150 square meters in size. For the sake of this exercise, we
-            are going to assume that the price of a house is entirely dependent on a single variable, or <em>feature</em> - the
-            size of the house.
+            Let’s assume that you would like to buy a 150 square meter home in Melbourne’s inner city suburb of Richmond.
+            You’ve done some homework and collected data from twelve recent sales in the area - each data point consists of
+            a home’s sale price and its size in square metres.
           </p>
           <p>
-            You’ve done some homework and collected data from twelve recent house sales in the area, and each data point you
-            collected consists of the sale price and size of each home. Based on this data, you want to estimate how much you
-            might pay for a 150 square meter home in Richmond.
+            Based on this data, you want to predict how much it might cost to buy a 150 square meter home in Richmond. For
+            the sake of this exercise, we’ll assume that the price of a home is only dependent on a single <em>feature</em> - the
+            size of the home.
           </p>
           <p>
-            How might you go about doing this?
+            Let’s start with a simple method to figure out how much it might cost to buy a 150m<sup>2</sup> home in Richmond.
           </p>
 
           <h3>Step 1: Plot the data</h3>
           <p>
-          As a first step, we’ll plot all of the house sales data that you collected onto a graph. Figure 1 presents
-          a graph of your house sales data, with the house size (in m2) on the x axis and the house price on the y axis.
+          As a first step, we’ll plot all of the sales data onto a graph. Figure 1 below presents
+          a graph of the sales data, with house sizes (in m<sup>2</sup>) on the horizontal <em>x axis</em> and house
+          prices on the vertical <em>y axis</em>.
           </p>
 
           <figure>Figure 1: House price as a function of house size</figure>
@@ -134,52 +133,46 @@
 
           <h3>Step 2: Fit the data</h3>
           <p>
-            With our house sales data plotted, we will draw a straight line that fits the data as best as possible so
-            that we can begin making predictions. We’re going to use our best judgement here and draw a straight line that
-            seems to fits the data reasonably well. Figure 2 displays our straight line overlaying the house sales data.
+            Now that our sales data is plotted on a graph, we can simply use our best judgement to draw a straight red line that fits
+            the data reasonably well. Figure 2 below presents our red line overlaying the sales data.
           </p>
 
-          <figure>Figure 2: Using judgement to draw a line that best fits the housing data</figure>
+          <figure>Figure 2: Using judgement to draw a straight line that fits our housing data</figure>
           <img src="images/chapter2/figure2.png"></img>
 
+          <h3>Step 3: Make a prediction</h3>
           <p>
-            While this won’t a be perfect fit, it’s certainly within reason and at least appears to fit the data quite
-            well. The better this line fits your data, the better your predictions will be.
+            To predict the price of a 150m<sup>2</sup> home in Richmond, draw a vertical line from the 150m<sup>2</sup> value located on the x axis
+            until it intersects with the red line we drew in step 2. From the intersection come across to the y axis to get
+            the predicted price of a 150m<sup>2</sup> home. Figure 3 below provides you with a visual demonstration of our prediction using
+            green dashed lines.
           </p>
 
-          <h3>Step 3: Make predictions</h3>
-          <p>
-            To predict the price for a 150m2 house, draw a vertical line from the 150m2 value located on the x axis
-            until it intersects with the line, then come across to the y axis to get the predicted price. Figure 3
-            below will provide you with a visual demonstration of our prediction.
-          </p>
-
-          <figure>Figure 3: Predicting the price of a 150m2 house</figure>
+          <figure>Figure 3: Predicting the price of a 150m<sup>2</sup> home in Richmond</figure>
           <img src="images/chapter2/figure3.png"></img>
 
           <p>
-            We can now predict that it will cost around $900,000 to buy a 150m2 house in Richmond based on the data we collected
-            from previous home sales. As an exercise for the reader, use the figure above to predict the price of a 200m2
-            house and a 300m2 house.
+            Based on the sales data you collected, we can predict that a 150m<sup>2</sup> house in Richmond will cost
+            approximately <strong>$900,000</strong> to purchase.
           </p>
 
           <p>
-          This was our first prediction as well as an intuitive introduction to linear regression. Let’s summarize
-          what we’ve just done to make our first prediction:
+            Congratulations, you made your first data-driven prediction! Let’s quickly summarize the four steps
+            we just took to make this prediction:
           </p>
 
           <ol>
             <li>We collected data</li>
-            <li>We plotted the data</li>
-            <li>We drew a straight line that best fits the data</li>
+            <li><em>We plotted the data</em></li>
+            <li><em>We drew a straight line that best fits the data</em></li>
             <li>We used the line to make predictions for data we haven’t seen before.</li>
           </ol>
 
           <p>
-            Hopefully you found this to be a reasonably straightforward process and a common sense approach towards
-            making a simple prediction from a set of data. Please note the italicized points 2 and 3 above; the goal
-            for the remainder of this chapter will be to revise steps 2 and 3 to use an automated, algorithmic
-            approach for prediction instead of a manual, intuitive one.
+            Notice that step 3 is italicized; this was the step where we used our judgement to draw a straight line to
+            fit the data as best as we could. For the remainder of this chapter, we’ll go on a journey to replace our
+            <em>judgement</em> with <em>data-driven algorithms</em> that will ultimately make far more accurate predictions
+            for us.
           </p>
 
 
