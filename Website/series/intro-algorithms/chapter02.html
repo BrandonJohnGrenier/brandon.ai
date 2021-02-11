@@ -163,7 +163,7 @@
 
           <ol>
             <li>We collected data</li>
-            <li><em>We plotted the data</em></li>
+            <li>We plotted the data</li>
             <li><em>We drew a straight line that best fits the data</em></li>
             <li>We used the line to make predictions for data we haven’t seen before.</li>
           </ol>
@@ -177,32 +177,38 @@
 
 
           <a name="sec-2"></a>
-          <h2>The Hypothesis Function: Model your problem space</h2>
+          <h2>The Hypothesis Function</h2>
 
           <p>
-            With our first intuitive prediction complete, it’s time to start formalizing our intuition so that we can begin
-            making predictions algorithmically. In this section we introduce you to the concept of a hypothesis function, and
-            define the hypothesis function that we will use in linear regression.
+            The first step in formalizing our intuition begins with replacing the notion of our “best guess” straight line with
+            a <em>mathematical definition</em> of what that line represents – it’s time to introduce you to the hypothesis function.
           </p>
 
           <p>
-          The hypothesis function h describes any function that is used to fit data and make predictions. In other words, the
-          hypothesis function is a function that acts as an effective model, or proxy for your data. It is the responsibility
-          of the AI/ML designer to select the most appropriate hypothesis function to effectively model the available
-          training data. Consequently, this will be one of the first activities an AI/ML designer will undertake when building
-          machine learning algorithms.
+            The <strong>hypothesis function</strong> is a term that describes any mathematical function that is used to fit, or model
+            your data - much in the same way that the term <em>car</em> can be used to describe any model of car like a Ford,
+            Lexus or Cadillac.
           </p>
 
           <p>
-          Our housing data appeared to have a linear relationship, so we used a linear function to model this
-          relationship. Problems spaces like population growth and infection rates may best be modelled with exponential
-          functions; predicting yearly fluctuations in global temperature could potentially be modelled with sinusoidal functions;
-          predicting earthquake behavior could be modelled with logarithmic functions.
+            Problems spaces like population growth and infection rates may best be modelled with <em>exponential functions</em>;
+            predicting yearly fluctuations in global temperature could potentially be modelled with <em>sinusoidal functions</em>;
+            predicting earthquake behavior could be modelled with <em>logarithmic functions</em>.  You might not have known it at
+            the time, but we used a <em>linear function</em> to predict the price of a home in Richmond. The
+            specific mathematical function we use to model our data is referred to as the hypothesis function in our
+            machine learning algorithms.
           </p>
 
           <p>
-          Figure 4 below provides a few examples of functions that can be used as a hypothesis function to effectively fit the
-          shape of your data and model your problem space.
+            As an ML designer, it will be your responsibility to select the most appropriate hypothesis function to
+            effectively model your data. Consequently, this will be one of the first activities you’ll undertake when
+            building machine learning solutions. In later chapters we’ll discuss how we can build ML algorithms to
+            select the most appropriate hypothesis functions for our data automatically, but for now we’ll stick with the basics.
+          </p>
+
+          <p>
+            If it’s been a while since you’ve last studied mathematical functions, figure 4 below provides a few visual examples
+            of functions that can be used as hypothesis functions to effectively fit your data and model your problem space.
           </p>
 
           <figure>Figure 4: Examples of functions at your disposal to model your problem space</figure>
