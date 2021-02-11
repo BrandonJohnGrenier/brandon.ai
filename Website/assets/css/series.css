@@ -122,6 +122,14 @@ img {
     }
 }
 
+
+
+
+
+
+
+
+
 .chapter-container h1 {
   font-family: Montserrat, Arial, Sans-Serif !important;
   font-size: 26px;
@@ -150,6 +158,14 @@ img {
 }
 
 .chapter-container h3 {
+  font-family: PT-Serif;
+  color: #222;
+  font-size: 20px;
+  font-weight: 700;
+  margin: 30px 0 5px 0;
+}
+
+.chapter-container h4 {
   font-family: PT-Serif;
   color: #222;
   font-size: 20px;
@@ -223,6 +239,23 @@ img {
   font-family: PT-Serif;
 }
 
+.chapter-container blockquote {
+  font-style: italic;
+font-family: PT-Serif;
+color: #222;
+font-size: 21px;
+line-height: 1.6 !important;
+text-align: justify;
+margin: 0 40px 25px 15px;
+padding-left: 25px;
+border-left: 3px solid #1C63FB;
+}
+
+
+
+
+
+
 .footer {
   background: #EEE;
 }
@@ -239,6 +272,23 @@ img {
   margin-top: -10px;
   font-weight: 500;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 .serif {
