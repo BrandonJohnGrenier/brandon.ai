@@ -3,7 +3,7 @@ body {
   line-height: 1.7;
   font-weight: 300;
   font-size: 1rem;
-  font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: "Roboto", "Helvetica Neue";
   background-image: url("../images/polygon.png");
   background-position: -500px -1585px;
   background-repeat: no-repeat; }
@@ -38,6 +38,13 @@ h1, h2, h3, h4, h5, h6 {
 
 img {
   padding-bottom: 20px;
+}
+
+.home-icon-link {
+    display: block;
+    float: left;
+    padding-top: 20px;
+    margin-left: 25px;
 }
 
 .series-title {
@@ -104,31 +111,12 @@ img {
   font-size: 33px;
 }
 
+
+
+
 .chapter-container {
   padding: 0 150px;
 }
-
-@media (max-width: 1200px) {
-    .chapter-container {
-      padding: 0 20px !important;
-    }
-    .book-title {
-      padding: 0 20px !important;
-    }
-    .book-title-font {
-      font-size: 28px !important;
-      font-weight: 200;
-      font-family: Montserrat;
-    }
-}
-
-
-
-
-
-
-
-
 
 .chapter-container h1 {
   font-family: Montserrat, Arial, Sans-Serif !important;
@@ -138,7 +126,7 @@ img {
 }
 
 .chapter-container h2 {
-  font-family: PT-Serif;
+  font-family: "PT-Serif", "Sans-Serif";
   color: #222;
   font-size: 26px;
   font-weight: 700;
@@ -158,7 +146,7 @@ img {
 }
 
 .chapter-container h3 {
-  font-family: PT-Serif;
+  font-family: "PT-Serif", "Sans-Serif";
   color: #222;
   font-size: 20px;
   font-weight: 700;
@@ -166,7 +154,7 @@ img {
 }
 
 .chapter-container h4 {
-  font-family: PT-Serif;
+  font-family: "PT-Serif", "Sans-Serif";
   color: #222;
   font-size: 20px;
   font-weight: 700;
@@ -174,7 +162,7 @@ img {
 }
 
 .chapter-container p, .chapter-container li {
-  font-family: PT-Serif;
+  font-family: "PT-Serif", "Sans-Serif";
   color: #222;
   font-size: 21px;
   line-height: 1.6 !important;
@@ -231,27 +219,53 @@ img {
 }
 
 .chapter-container figure {
+  font-family: "PT-Serif", "Sans-Serif";
   font-weight: bold;
   color: #111;
   font-size: 17px;
   display: block;
   padding-bottom: 5px;
-  font-family: PT-Serif;
 }
 
 .chapter-container blockquote {
   font-style: italic;
-font-family: PT-Serif;
-color: #222;
-font-size: 21px;
-line-height: 1.6 !important;
-text-align: justify;
-margin: 0 40px 25px 15px;
-padding-left: 25px;
-border-left: 3px solid #1C63FB;
+  font-family: "PT-Serif", "Sans-Serif";
+  color: #222;
+  font-size: 21px;
+  line-height: 1.6 !important;
+  text-align: justify;
+  margin: 0 40px 25px 15px;
+  padding-left: 25px;
+  border-left: 3px solid #1C63FB;
 }
 
+.chapter-container .chapter-header-link {
+  display: block !important;
+  margin-top: -25px !important;
+}
 
+@media (max-width: 1200px) {
+    .chapter-container {
+      padding: 0 20px !important;
+    }
+    .chapter-container p {
+      font-size: 16px !important;
+    }
+    .chapter-container img {
+      max-width: 100% !important;
+    }
+    .chapter-container blockquote {
+      font-size: 16px !important;
+    }
+    .book-title {
+      padding: 0 20px !important;
+    }
+    .book-title-font {
+      font-size: 28px !important;
+      font-weight: 200;
+      font-family: Montserrat;
+    }
+}
 
 
 
