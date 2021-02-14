@@ -171,7 +171,7 @@
           <ol>
             <li>We collected data</li>
             <li>We plotted the data</li>
-            <li><em>We drew a straight line that best fits the data</em></li>
+            <li><em>We drew a straight line that best fit the data</em></li>
             <li>We used the line to make a prediction – an educated guess in the absence of data</li>
           </ol>
 
@@ -187,56 +187,31 @@
           <h2>The Hypothesis Function</h2>
 
           <p>
-            The first step in formalizing our intuition begins with replacing the notion of our “best guess” straight line with
-            a <em>mathematical definition</em> of what that line represents – it’s time to introduce you to the hypothesis function.
-          </p>
-
-          <p>
             The <strong>hypothesis function</strong> is a term that describes any mathematical function that is used to fit, or model
-            your data - much in the same way that the term <em>car</em> can be used to describe any model of car like a Ford,
-            Lexus or Cadillac.
-          </p>
-
-          <p>
-            Problems spaces like population growth and infection rates may best be modelled with <em>exponential functions</em>;
+            your data. Problems spaces like population growth and infection rates may best be modelled with <em>exponential functions</em>;
             predicting yearly fluctuations in global temperature could potentially be modelled with <em>sinusoidal functions</em>;
-            predicting earthquake behavior could be modelled with <em>logarithmic functions</em>.  You might not have known it at
-            the time, but we used a <em>linear function</em> to predict the price of a home in Richmond. The
-            specific mathematical function we use to model our data is referred to as the hypothesis function in our
-            machine learning algorithms.
+            predicting earthquake behavior could be modelled with <em>logarithmic functions</em>.
           </p>
-
-          <p>
-            As an ML designer, it will be your responsibility to select the most appropriate hypothesis function to
-            effectively model your data. Consequently, this will be one of the first activities you’ll undertake when
-            building machine learning solutions. In later chapters we’ll discuss how we can build ML algorithms to
-            select the most appropriate hypothesis functions for our data automatically, but for now we’ll stick with the basics.
-          </p>
-
-          <p>
-            If it’s been a while since you’ve last studied mathematical functions, figure 4 below provides a few visual examples
-            of functions that can be used as hypothesis functions to effectively fit your data and model your problem space.
-          </p>
-
-          <figure>Figure 4: Examples of functions at your disposal to model your problem space</figure>
-          <img src="images/chapter2/figure4.png"></img>
 
           <h3>The Hypothesis Function for Linear Regression</h3>
 
           <p>
-          The linear regression algorithm uses a <em>linear function</em> as it’s hypothesis function, and is defined as:
+            A <em>linear function</em> is optimal for modelling linear relationships like our home sales data, and the appropriate
+            hypothesis function for linear regression. Our current problem space only involves one variable, the size of a
+            home. Consequently the hypothesis function we use for linear regression only needs to support one variable, and
+            is defined as:
           </p>
 
           <p><strong>h(x) = &Theta;<sub>0</sub> + &Theta;<sub>1</sub>x</strong></p>
 
           <p>
-            The hypothesis function <strong>h(x)</strong> represents the formal, mathematical definition of our straight red
-            line. The symbol &Theta; is called theta, you’ll see references to theta throughout machine learning.
+            The symbol &Theta; is called theta, you’ll see references to theta throughout machine learning.
           </p>
 
+          <h3>The Goal of Linear Regression</h3>
           <p>
-            Now that we’ve defined the hypothesis function that we’ll use in our linear regression algorithm, let’s talk about the
-            goal of linear regression:
+            Now that we’ve defined the hypothesis function for linear regression we have enough context to define the <em>goal</em> of
+            linear regression:
           </p>
 
           <blockquote>
@@ -244,23 +219,24 @@
           </blockquote>
 
           <p>
-            More specifically, the goal of linear regression is to discover the most appropriate values for both <strong>&Theta;<sub>0</sub></strong> and <strong>&Theta;<sub>1</sub></strong> so
-            that the hypothesis function fits our training data as best as it possibly can. Using our Richmond home prediction
-            as an analogy - the hypothesis function represents our straight red line; linear regression acts the mathematical
-            equivalent of us “eyeballing” the data to draw the straight red line <em>in the most appropriate place</em>. You can say that
-            linear regression is an algorithmic expression of our intuition.
+            More specifically, the goal of linear regression is to identify the best values for <strong>&Theta;<sub>0</sub></strong> and
+            <strong>&Theta;<sub>1</sub></strong> so that the hypothesis function optimally models our training data. Using our Richmond
+            home prediction as an analogy - the hypothesis function represents our straight red line; linear regression acts the
+            mathematical equivalent of us “eyeballing” the data to draw the straight red line <em>in the most appropriate place</em>.
+            You can say that linear regression is an algorithmic expression of our intuition.
           </p>
 
           <p>
-            With all that being said, what do we mean by <em>good predictor</em> exactly? While the term sounds a bit ambiguous, we’ll
-            produce a concrete definition of what a good predictor is, and we’ll introduce the <em>cost function</em> as method to quantify
-            good predictors.
+            What do we mean by <em>good predictor</em> exactly? While the term sounds a bit ambiguous, we’ll produce a concrete
+            definition of what a good predictor is, and we’ll introduce the <em>cost function</em> as a method to quantify good predictors.
           </p>
+
 
           <h4>Reader Tip: Linear Function Review</h4>
           <p>
-            We’ve included a review of linear functions in <a href="appendixA.html">Appendix A</a>. If it’s been a while since you’ve last used
-            linear functions we recommend that you read Appendix A before you move on to the next section.
+            We’ve included a review of linear functions and a few visual examples of functions that are commonly used to model
+            data in <a href="appendixA.html">Appendix A</a>. If it’s been a while since you’ve last used linear functions we
+            recommend that you read Appendix A before you move on to the next section.
           </p>
 
 
@@ -269,19 +245,20 @@
           <h2>The Cost Function</h2>
 
           <p>
-          A good predictor is one that most effectively minimizes the difference between the predicted values h(x) and the
-          observed values y for all values of x in a training set. A cost function quantifies this difference to estimate
-          how models are performing.
+            A <strong>good predictor</strong> is one that most effectively <em>minimizes the difference</em> between predicted
+            values <strong>h(x)</strong> and observed values <strong>y</strong>, for all values of <strong>x</strong> in a
+            training set. The smaller the difference, the better the predictor; the larger the difference, the poorer the predictor.
+            A difference of exactly zero would suggest that the hypothesis function being used is not only a good, but <em>perfect</em> predictor.
           </p>
 
           <p>
-          The cost function is an incredibly important tool in machine learning, as it acts as the feedback mechanism for
-          machine learning algorithms. The ability to receive and adapt to feedback is one of the foundational characteristics
-          of machine learning algorithms.
+            The <strong>cost function</strong> objectively quantifies how good a predictor is by calculating the difference
+            between predicted values h(x) and observed values y, for all values of x in a training set.
           </p>
 
+          <h3>Deriving The Cost Function</h3>
           <p>
-          The following cost function pseudo-algorithm is used to quantify the performance of a model (i.e. a hypothesis function):
+            The following cost function pseudo-algorithm calculates how good of a predictor a hypothesis function is:
           </p>
 
           <ol>
@@ -291,102 +268,87 @@
           </ol>
 
           <p>
-          The cost function outputs the average difference between all predictions and observations in a training set. The
-          closer this value is to zero, the better a model is at making predictions. If the value is equal to zero, it
-          means that a model perfectly predicts observations.
+            The cost function ultimately computes the average difference between a prediction and observation for all data
+            in a training set. The closer this value is to zero, the better a hypothesis function is at making predictions.
+            Now that you have an understanding of how the cost function works let’s derive the mathematical definition
+            of the cost function, step-by-step:
           </p>
 
           <p>
-          Now that you have an understanding of how a cost function works,  we’ll derive the mathematical definition of the
-          cost function step-by-step:
-          </p>
-
-          <p>
-          Step 1: For each instance in the training set, calculate the difference between the predicted
+          <strong>Step 1:</strong> For each instance in the training set, calculate the difference between the predicted
           value h(x) and the observed value y.
           </p>
 
           $$h(x_{i}) - y_{i}$$
 
           <p>
-          Where the superscript (i) refers to a specific training instance in the training set. In this step
-          we’re simply subtracting the observed value y from the predicted value h(x) for a specific training instance i.
+          The subscript <strong><em>i</em></strong> refers to a specific training <em>instance</em> in the training set.
           </p>
 
-          <p>Step 2: Sum up all the differences.</p>
+          <p><strong>Step 2:</strong> Sum up all the differences.</p>
 
           $$\displaystyle \sum _{i=1}^m \left (h (x_{i}) - y_{i} \right)$$
 
           <p>
-            Where m refers to the size of the training set. Please note that the summation for the training set
-            is 0-indexed (i=0). You may see training sets 1-indexed (i=1) in some literature.
+            The variable <strong>m</strong> refers to the size of the training set. Note that the starting index for the
+            training set is 0 (i=0) - you may see training sets 1-indexed (i=1) in some literature.
           </p>
 
-          <p>Step 3: Divide the total difference by the size of the training set:</p>
+          <p><strong>Step 3:</strong> Divide the total difference by the size of the training set.</p>
 
           $$\dfrac {1}{m} \displaystyle \sum _{i=1}^m \left (h (x_{i}) - y_{i} \right)$$
 
           <p>
-            What we’ve just derived in step 3 is a perfectly usable cost function. Although we could use the function
-            as-is, we are going to make two small modifications to the function so that it’s a bit simpler to implement
-            in practice. The next section describes the modifications and the benefits of making them.
+            What we’ve just derived is a perfectly usable cost function, but we’re going to make two modifications so that it’s
+            simpler to implement in practice.
           </p>
 
-          <p>The Cost Function</p>
+          <p>
+            First, we are going to square the error component (the difference between the predicted value <strong>h(x)</strong> and observed value <strong>y</strong>).
+            Squaring always ensures that we have a positive number; for example 4<sup>2</sup> and -4<sup>2</sup> are both equal to 16. A
+            programmatic implementation of the cost function only cares about the magnitude of error - getting rid of negatives removes a bit
+            of complexity in dealing with both positive and negative numbers.
+          </p>
 
           <p>
-          This is the formal definition of the cost function, which may also be referred to as the squared error function or
-          mean error function:
+            Second, the entire cost function is multiplied by ½ so that the function remains consistent when derivatives of
+            this function are taken. Since the derivative of x<sup2</sup> is 2x, multiplying by ½ negates the effect of the exponent.
+          </p>
+
+          <p>
+            This is the formal definition of the cost function, which is also referred to as the squared error function or mean
+            error function:
           </p>
 
           $$\dfrac {1}{2m} \displaystyle \sum _{i=1}^m \left (h (x_{i}) - y_{i} \right)^2$$
 
           <p>
-            It’s important to note that the formal definition of the cost function shown above and the cost function derived
-            in step 3 are functionally and materially identical. Using either of these functions will provide a consistent
-            and correct outcome. The formal definition happens to be simpler to implement in software, and we like simple.
-          </p>
-
-          <p>
-            First, the error component (the difference between the predicted value and observed value) has been squared.
-            Squaring always ensures that we have a positive number; for example 42 and -42 are both equal to 16. A programmatic
-            implementation of the cost function only cares about the magnitude of error - getting rid of negatives
-            removes a bit of complexity in dealing with both positive and negative numbers.
-          </p>
-
-          <p>
-            Second, the cost function is multiplied by ½ - this is a practical change to restore balance to the cost function.
-            Since the error component has been squared, we needed to add a term to make sure the function remains
-            consistent when derivatives of this function are taken. Since the derivative of x2 is 2x, so multiplying by 1/2
-            cancels out the effect of the exponent.
-          </p>
-
-          <p>
-            Lastly, we substitute the reference to our hypothesis function h(xi) with the linear regression hypothesis function that we
+            Finally, we substitute the reference to our hypothesis function <strong>h(x<sub>i</sub>)</strong> with the linear regression hypothesis function that we
             introduced previously. This is the fully expanded cost function that we will use in the linear regression algorithm:
           </p>
 
           $$J(\theta_0, \theta_1) = \dfrac {1}{2m} \displaystyle \sum _{i=1}^m \left (\theta_0 + \theta_1x_{i} - y_{i} \right)^2$$
 
           <p>
-            The cost function is conventionally defined as J, so J(Θ0, Θ1) is a function that will produce a performance measure for
-            specific values of Θ0 and Θ1.
+            The cost function is conventionally defined as <strong>J</strong>. The linear regression algorithm will identify values
+            for Θ<sub>0</sub> and Θ<sub>1</sub> so that our cost function J(Θ<sub>0</sub>, Θ<sub>1</sub>) produces the smallest possible value. By way of convention, we say
+            that we want our machine learning algorithm to <em>minimize</em> J(Θ<sub>0</sub>, Θ<sub>1</sub>).
           </p>
 
           <p>
-            The linear regression algorithm will choose values for Θ0 and Θ1 so that J(Θ0, Θ1) produces the smallest possible
-            output. By way of convention, we want our machine learning algorithm to minimize J(Θ0, Θ1).
-          </p>
-
-          <p>
-          Before we move on to minimizing J(Θ0, Θ1), let’s work through a concrete example with the cost function that we’ve
-          just derived.
+            Let’s work through a concrete example where we compute and compare the cost function for different values of Θ<sub>0</sub> and Θ<sub>1</sub>.
           </p>
 
 
           <h3>The Cost Function in Practice</h3>
           <p>
-          To get a better appreciation of the cost function, we’ll run through an exercise comparing the performance of two different linear regression hypothesis functions. In figure 5 below, I’ve plotted the function h(x) = 3 + 11x, the function h(x) = 1 + 5x and a training set consisting of five data points. The data points for our training set are as follows:
+            To get a better appreciation of the cost function, we’ll run through an exercise comparing the performance of two
+            different linear regression hypothesis functions to find out which one would be the better predictor.
+          </p>
+
+          <p>
+            In figure 5 below, I’ve plotted the function <strong>h(x) = 3 + 11x</strong>, the function <strong>h(x) = 1 + 5x</strong> and a
+            training set consisting of five data points. The data points for our training set are as follows:
           </p>
 
           ■(x&y@5&30@6&40@7&50@8&60@9&70)
