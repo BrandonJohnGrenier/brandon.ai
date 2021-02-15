@@ -244,6 +244,22 @@ img {
   margin-top: -25px !important;
 }
 
+.chapter-container table {
+  margin: 0 0 25px 0;
+}
+
+.chapter-container thead td {
+  padding: 5px 15px;
+  border: 1px solid #CCC;
+  background: #EEE;
+  font-weight: bold;
+}
+
+.chapter-container td {
+  padding: 5px 15px;
+  border: 1px solid #CCC;
+}
+
 @media (max-width: 1200px) {
     .chapter-container {
       padding: 0 20px !important;

@@ -196,10 +196,9 @@
           <h3>The Hypothesis Function for Linear Regression</h3>
 
           <p>
-            A <em>linear function</em> is optimal for modelling linear relationships like our home sales data, and the appropriate
-            hypothesis function for linear regression. Our current problem space only involves one variable, the size of a
-            home. Consequently the hypothesis function we use for linear regression only needs to support one variable, and
-            is defined as:
+            A <em>linear function</em> is optimal for modelling linear relationships like our home sales data, and well suited as our
+            linear regression hypothesis function. Our current problem space only involves one variable - the size of a home.
+            Consequently, our linear regression hypothesis function only needs to support one variable, and is defined as:
           </p>
 
           <p><strong>h(x) = &Theta;<sub>0</sub> + &Theta;<sub>1</sub>x</strong></p>
@@ -210,8 +209,8 @@
 
           <h3>The Goal of Linear Regression</h3>
           <p>
-            Now that we’ve defined the hypothesis function for linear regression we have enough context to define the <em>goal</em> of
-            linear regression:
+            Now that we’ve defined the hypothesis function for linear regression, we have enough context to define
+            the <em>goal</em> of linear regression:
           </p>
 
           <blockquote>
@@ -219,18 +218,13 @@
           </blockquote>
 
           <p>
-            More specifically, the goal of linear regression is to identify the best values for <strong>&Theta;<sub>0</sub></strong> and
-            <strong>&Theta;<sub>1</sub></strong> so that the hypothesis function optimally models our training data. Using our Richmond
-            home prediction as an analogy - the hypothesis function represents our straight red line; linear regression acts the
-            mathematical equivalent of us “eyeballing” the data to draw the straight red line <em>in the most appropriate place</em>.
-            You can say that linear regression is an algorithmic expression of our intuition.
+            In other words, linear regression aims to produce a hypothesis function whose <em>predictions</em> match <em>observations</em>
+            as closely as possible. It does this by identifying the best values for <strong>&Theta;<sub>0</sub></strong> and
+            <strong>&Theta;<sub>1</sub></strong> so that the hypothesis function minimizes the difference between predictions and
+            observations. We can concretely define a <strong>good predictor</strong> as a hypothesis function that most effectively <em>minimizes the difference</em> between predicted
+            values <strong>h(x)</strong> and observed values <strong>y</strong>, for all values of <strong>x</strong> in a
+            training set. The smaller the difference, the better the predictor; the larger the difference, the poorer the predictor.
           </p>
-
-          <p>
-            What do we mean by <em>good predictor</em> exactly? While the term sounds a bit ambiguous, we’ll produce a concrete
-            definition of what a good predictor is, and we’ll introduce the <em>cost function</em> as a method to quantify good predictors.
-          </p>
-
 
           <h4>Reader Tip: Linear Function Review</h4>
           <p>
@@ -245,35 +239,17 @@
           <h2>The Cost Function</h2>
 
           <p>
-            A <strong>good predictor</strong> is one that most effectively <em>minimizes the difference</em> between predicted
-            values <strong>h(x)</strong> and observed values <strong>y</strong>, for all values of <strong>x</strong> in a
-            training set. The smaller the difference, the better the predictor; the larger the difference, the poorer the predictor.
-            A difference of exactly zero would suggest that the hypothesis function being used is not only a good, but <em>perfect</em> predictor.
+            The <strong>cost function</strong> allows us to objectively measure how well a hypothesis function acts as a <em>good predictor</em> for a given
+            training set. It does this by computing the average difference between predicted values <strong>h(x)</strong> and
+            observed values <strong>y</strong>, for all values of <strong>x</strong> in a training set.
           </p>
-
           <p>
-            The <strong>cost function</strong> objectively quantifies how good a predictor is by calculating the difference
-            between predicted values h(x) and observed values y, for all values of x in a training set.
+            Instead of simply defining the cost function, we'll derive the cost function so that you can get an appreciation for
+            its behavior and mechanics.
           </p>
 
           <h3>Deriving The Cost Function</h3>
-          <p>
-            The following cost function pseudo-algorithm calculates how good of a predictor a hypothesis function is:
-          </p>
-
-          <ol>
-            <li>For each instance in the training set, calculate the difference between the predicted value h(x) and the observed value y.
-            <li>Sum up all of the differences.
-            <li>Divide the total difference by the size of the training set.
-          </ol>
-
-          <p>
-            The cost function ultimately computes the average difference between a prediction and observation for all data
-            in a training set. The closer this value is to zero, the better a hypothesis function is at making predictions.
-            Now that you have an understanding of how the cost function works let’s derive the mathematical definition
-            of the cost function, step-by-step:
-          </p>
-
+          <br/>
           <p>
           <strong>Step 1:</strong> For each instance in the training set, calculate the difference between the predicted
           value h(x) and the observed value y.
@@ -287,16 +263,15 @@
 
           <p><strong>Step 2:</strong> Sum up all the differences.</p>
 
-          $$\displaystyle \sum _{i=1}^m \left (h (x_{i}) - y_{i} \right)$$
+          $$\displaystyle \sum _{i=0}^m \left (h (x_{i}) - y_{i} \right)$$
 
           <p>
-            The variable <strong>m</strong> refers to the size of the training set. Note that the starting index for the
-            training set is 0 (i=0) - you may see training sets 1-indexed (i=1) in some literature.
+            The variable <strong>m</strong> refers to the size of the training set.
           </p>
 
           <p><strong>Step 3:</strong> Divide the total difference by the size of the training set.</p>
 
-          $$\dfrac {1}{m} \displaystyle \sum _{i=1}^m \left (h (x_{i}) - y_{i} \right)$$
+          $$\dfrac {1}{m} \displaystyle \sum _{i=0}^m \left (h (x_{i}) - y_{i} \right)$$
 
           <p>
             What we’ve just derived is a perfectly usable cost function, but we’re going to make two modifications so that it’s
@@ -320,14 +295,14 @@
             error function:
           </p>
 
-          $$\dfrac {1}{2m} \displaystyle \sum _{i=1}^m \left (h (x_{i}) - y_{i} \right)^2$$
+          $$\dfrac {1}{2m} \displaystyle \sum _{i=0}^m \left (h (x_{i}) - y_{i} \right)^2$$
 
           <p>
             Finally, we substitute the reference to our hypothesis function <strong>h(x<sub>i</sub>)</strong> with the linear regression hypothesis function that we
             introduced previously. This is the fully expanded cost function that we will use in the linear regression algorithm:
           </p>
 
-          $$J(\theta_0, \theta_1) = \dfrac {1}{2m} \displaystyle \sum _{i=1}^m \left (\theta_0 + \theta_1x_{i} - y_{i} \right)^2$$
+          $$J(\theta_0, \theta_1) = \dfrac {1}{2m} \displaystyle \sum _{i=0}^m \left (\theta_0 + \theta_1x_{i} - y_{i} \right)^2$$
 
           <p>
             The cost function is conventionally defined as <strong>J</strong>. The linear regression algorithm will identify values
@@ -335,15 +310,11 @@
             that we want our machine learning algorithm to <em>minimize</em> J(Θ<sub>0</sub>, Θ<sub>1</sub>).
           </p>
 
-          <p>
-            Let’s work through a concrete example where we compute and compare the cost function for different values of Θ<sub>0</sub> and Θ<sub>1</sub>.
-          </p>
-
-
           <h3>The Cost Function in Practice</h3>
           <p>
-            To get a better appreciation of the cost function, we’ll run through an exercise comparing the performance of two
-            different linear regression hypothesis functions to find out which one would be the better predictor.
+            To get a better appreciation of how the cost function works, we’ll run through an exercise to calculate and compare the
+            cost function of two different linear regression hypothesis functions to find out which one would act as the
+            better predictor.
           </p>
 
           <p>
@@ -351,9 +322,16 @@
             training set consisting of five data points. The data points for our training set are as follows:
           </p>
 
-          ■(x&y@5&30@6&40@7&50@8&60@9&70)
+          <table>
+            <thead><tr><td>x</td><td style="text-align: center;">y</td></tr></thead>
+            <tr><td>5</td><td>30</td></tr>
+            <tr><td>6</td><td>40</td></tr>
+            <tr><td>7</td><td>50</td></tr>
+            <tr><td>8</td><td>60</td></tr>
+            <tr><td>9</td><td>70</td></tr>
+          </table>
 
-          <figure>Figure 5: Comparing two linear regression hypothesis functions for predive performance</figure>
+          <figure>Figure 5: Comparing the predictive performance of two linear regression hypothesis functions </figure>
           <img src="images/chapter2/figure5.png"></img>
 
           <p>
