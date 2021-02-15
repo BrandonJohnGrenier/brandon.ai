@@ -164,8 +164,7 @@
           </p>
 
           <p>
-            Congratulations, you made your first data-driven prediction! Let’s quickly summarize the four steps
-            we just took to make this prediction:
+            Let’s quickly summarize the four steps we just took to make this prediction:
           </p>
 
           <ol>
@@ -176,10 +175,9 @@
           </ol>
 
           <p>
-            Notice that step 3 is italicized; this was the step where we used our judgement to draw a straight line to
-            fit the data as best as we could. For the remainder of this chapter, we’ll go on a journey to replace our
-            <em>judgement</em> with <em>data-driven algorithms</em> that will ultimately make far more accurate predictions
-            for us.
+            In step 3, we used our judgement to draw a straight line to fit the data as best as we could. For the remainder of
+            this chapter, we’ll go on a journey to replace this <em>judgement</em> with <em>data-driven algorithms</em> which will
+            ultimately perform the same function, but do so with far more accuracy.
           </p>
 
 
@@ -319,7 +317,7 @@
 
           <p>
             In figure 5 below, I’ve plotted the function <strong>h(x) = 3 + 11x</strong>, the function <strong>h(x) = 1 + 5x</strong> and a
-            training set consisting of five data points. The data points for our training set are as follows:
+            training set consisting of five data points. The data points in our training set are as follows:
           </p>
 
           <table>
@@ -330,23 +328,24 @@
             <tr><td>8</td><td>60</td></tr>
             <tr><td>9</td><td>70</td></tr>
           </table>
+          <br/>
 
-          <figure>Figure 5: Comparing the predictive performance of two linear regression hypothesis functions </figure>
+          <figure>Figure 5: Comparing the predictive performance of two linear regression hypothesis functions</figure>
           <img src="images/chapter2/figure5.png"></img>
 
           <p>
-          We can assert that the function h(x) = 1 + 5x is a better fit to the data than the function h(x) = 3 + 11x by visual
-          inspection alone, but we’ll generate the cost for each of these hypothesis functions to get an objective measure.
+            A quick inspection of this graph would suggest that that the function h(x) = 1 + 5x is a better fit for the data,
+            and therefore a better predictor than the function h(x) = 3 + 11x.  Let’s compute the cost function for both of these
+            hypothesis functions to get a concrete and objective answer.
           </p>
 
           <p>
-          Table 1 and Table 2 below show the work for calculating the cost functions. The final line item in each table (Cost) is
-          calculated by taking the total difference and multiplying by 1/2m, or 1/10 since there are 5 instances in our training
-          set.
+            Table 1 and Table 2 below show the work for calculating the cost functions for each respective hypothesis function.  
           </p>
 
-          <figure>Table 1: Calculating the cost for h(x) = 1 + 5x</figure>
+          <figure>Table 1: Calculating the cost function for h(x) = 1 + 5x</figure>
           <table>
+            <thead>
             <tr>
               <td>x</td>
               <td>Predicted Value</td>
@@ -354,6 +353,7 @@
               <td>Difference</td>
               <td>Squared Difference</td>
             </tr>
+          </thead>
             <tr>
               <td>5</td>
               <td>26</td>
@@ -377,8 +377,9 @@
             </tr>
           </table>
 
-          <figure>Table 2: Calculating the cost for h(x) = 3 + 11x</figure>
+          <figure>Table 2: Calculating the cost function for h(x) = 3 + 11x</figure>
           <table>
+            <thead>
             <tr>
               <td>x</td>
               <td>Predicted Value</td>
@@ -386,6 +387,7 @@
               <td>Difference</td>
               <td>Squared Difference</td>
             </tr>
+          </thead>
             <tr>
               <td>5</td>
               <td>26</td>
