@@ -108,9 +108,9 @@
           <a name="sec-1"></a>
           <h2>Intuitive Linear Regression</h2>
           <p>
-            The first prediction we’re going to make using linear regression will be an intuitive one – there’s no math
+            The first prediction we’re going to make using linear regression will be an entirely intuitive one – there’s no math
             or algorithms involved at this point, just a bit of guesswork. As a consequence of this guesswork our predictions
-            will be <em>reasonable</em>, but not perfect - we’ll improve on our predictive ability as we formalize our intuition.
+            will be reasonable, and we’ll improve our predictive ability as we formalize our intuition.
           </p>
 
           <h3>Predicting the price of a home in Melbourne, Australia</h3>
@@ -194,9 +194,9 @@
           <h3>The Hypothesis Function for Linear Regression</h3>
 
           <p>
-            A <em>linear function</em> is optimal for modelling linear relationships like our home sales data, and well suited as our
-            linear regression hypothesis function. Our current problem space only involves one variable - the size of a home.
-            Consequently, our linear regression hypothesis function only needs to support one variable, and is defined as:
+            A <em>linear function</em> is optimal for modelling linear relationships like our home sales data, and will be the most
+            appropriate linear regression hypothesis function for our current problem space, which only involves one variable - the
+            size of a home. The linear regression hypothesis function is defined as:
           </p>
 
           <p><strong>h(x) = &Theta;<sub>0</sub> + &Theta;<sub>1</sub>x</strong></p>
@@ -237,43 +237,41 @@
           <h2>The Cost Function</h2>
 
           <p>
-            The <strong>cost function</strong> allows us to objectively measure how well a hypothesis function acts as a <em>good predictor</em> for a given
-            training set. It does this by computing the average difference between predicted values <strong>h(x)</strong> and
-            observed values <strong>y</strong>, for all values of <strong>x</strong> in a training set.
-          </p>
-          <p>
-            Instead of simply defining the cost function, we'll derive the cost function so that you can get an appreciation for
-            its behavior and mechanics.
+            The <strong>cost function</strong> measures how well a hypothesis function acts as a <em>good predictor</em> for a given
+            training set, which we’ll refer to this as the <em>performance</em> of a hypothesis function going forward. It does this by
+            computing the average difference between predicted values <strong>h(x)</strong> and observed values <strong>y</strong>, for all values
+            of <strong>x</strong> in a training set. Let’s derive the cost function from first principles so that you can get an appreciation
+            for its behavior and mechanics.
           </p>
 
           <h3>Deriving The Cost Function</h3>
           <br/>
           <p>
-          <strong>Step 1:</strong> For each instance in the training set, calculate the difference between the predicted
-          value h(x) and the observed value y.
+          <strong>Step 1:</strong>Calculate the difference between the predicted value h(x) and the observed value y, for each
+          instance <strong>i</strong> in the training set.
           </p>
 
-          $$h(x_{i}) - y_{i}$$
+          $$h(x^{(i)}) - y^{(i)}$$
 
           <p>
-          The subscript <strong><em>i</em></strong> refers to a specific training <em>instance</em> in the training set.
+          The superscript <strong>i</strong> in parentheses refers to a specific training <em>instance</em> in the training set.
           </p>
 
-          <p><strong>Step 2:</strong> Sum up all the differences.</p>
+          <p><strong>Step 2:</strong> Sum up all of the differences for each instance in the training set.</p>
 
-          $$\displaystyle \sum _{i=0}^m \left (h (x_{i}) - y_{i} \right)$$
+          $$\displaystyle \sum _{i=0}^m \left (h (x^{(i)}) - y^{(i)} \right)$$
 
           <p>
             The variable <strong>m</strong> refers to the size of the training set.
           </p>
 
-          <p><strong>Step 3:</strong> Divide the total difference by the size of the training set.</p>
+          <p><strong>Step 3:</strong> Divide the total difference by the size of the training set to calculate the average difference for the training set.</p>
 
-          $$\dfrac {1}{m} \displaystyle \sum _{i=0}^m \left (h (x_{i}) - y_{i} \right)$$
+          $$\dfrac {1}{m} \displaystyle \sum _{i=0}^m \left (h (x^{(i)}) - y^{(i)} \right)$$
 
           <p>
-            What we’ve just derived is a perfectly usable cost function, but we’re going to make two modifications so that it’s
-            simpler to implement in practice.
+            What we’ve just derived in step 3 is a perfectly usable cost function, but we’re going to make two
+            modifications to simplify the implementation of the function in practice.
           </p>
 
           <p>
@@ -293,19 +291,20 @@
             error function:
           </p>
 
-          $$\dfrac {1}{2m} \displaystyle \sum _{i=0}^m \left (h (x_{i}) - y_{i} \right)^2$$
+          $$\dfrac {1}{2m} \displaystyle \sum _{i=0}^m \left (h (x^{(i)}) - y^{(i)} \right)^2$$
 
           <p>
-            Finally, we substitute the reference to our hypothesis function <strong>h(x<sub>i</sub>)</strong> with the linear regression hypothesis function that we
-            introduced previously. This is the fully expanded cost function that we will use in the linear regression algorithm:
+            The cost function is conventionally defined as <strong>J</strong>. Lastly, we substitute the <em>reference</em> to our hypothesis function
+            <strong>h(x<sub>i</sub>)</strong> with the linear regression hypothesis function <strong>h(x<sub>i</sub>) = &Theta;<sub>0</sub> + &Theta;<sub>1</sub>x<sub>i</sub></strong>.
+            This is the fully expanded cost function that we will use in the linear regression algorithm:
           </p>
 
-          $$J(\theta_0, \theta_1) = \dfrac {1}{2m} \displaystyle \sum _{i=0}^m \left (\theta_0 + \theta_1x_{i} - y_{i} \right)^2$$
+          $$J(\theta_0, \theta_1) = \dfrac {1}{2m} \displaystyle \sum _{i=0}^m \left (\theta_0 + \theta_1x^{(i)} - y^{(i)} \right)^2$$
 
           <p>
-            The cost function is conventionally defined as <strong>J</strong>. The linear regression algorithm will identify values
-            for Θ<sub>0</sub> and Θ<sub>1</sub> so that our cost function J(Θ<sub>0</sub>, Θ<sub>1</sub>) produces the smallest possible value. By way of convention, we say
-            that we want our machine learning algorithm to <em>minimize</em> J(Θ<sub>0</sub>, Θ<sub>1</sub>).
+            We can now express the goal of linear regression in slightly more specific terms - the goal of linear regression is to identify values
+            for Θ<sub>0</sub> and Θ<sub>1</sub> so that <strong>J(Θ<sub>0</sub>, Θ<sub>1</sub>)</strong> produces the smallest possible value. Put simply, the goal of linear
+            regression is to <em>minimize</em> <strong>J(Θ<sub>0</sub>, Θ<sub>1</sub>)</strong>.
           </p>
 
           <h3>The Cost Function in Practice</h3>
@@ -334,13 +333,13 @@
           <img src="images/chapter2/figure5.png"></img>
 
           <p>
-            A quick inspection of this graph would suggest that that the function h(x) = 1 + 5x is a better fit for the data,
-            and therefore a better predictor than the function h(x) = 3 + 11x.  Let’s compute the cost function for both of these
-            hypothesis functions to get a concrete and objective answer.
+            Figure 5 suggests that that the function <strong>h(x) = 1 + 5x</strong> is a better fit for the data, and therefore a better
+            predictor for this training set.  We’ll compute the cost for both functions and compare their performance to
+            validate this intuition.
           </p>
 
           <p>
-            Table 1 and Table 2 below show the work for calculating the cost functions for each respective hypothesis function.  
+            Table 1 and Table 2 below show the work for calculating the cost function for each hypothesis function.
           </p>
 
           <figure>Table 1: Calculating the cost function for h(x) = 1 + 5x</figure>
@@ -356,26 +355,50 @@
           </thead>
             <tr>
               <td>5</td>
-              <td>26</td>
+              <td>h(5) = 1 + 5*5 = 26</td>
               <td>30</td>
               <td>-4</td>
               <td>16</td>
             </tr>
             <tr>
               <td>6</td>
-              <td>31</td>
+              <td>h(6) = 1 + 5*6 = 31</td>
               <td>40</td>
               <td>-9</td>
               <td>81</td>
             </tr>
             <tr>
               <td>7</td>
-              <td>36</td>
+              <td>h(7) = 1 + 5*7 = 36</td>
               <td>50</td>
               <td>-14</td>
               <td>196</td>
             </tr>
+            <tr>
+              <td>8</td>
+              <td>h(8) = 1 + 5*8 = 41</td>
+              <td>60</td>
+              <td>-19</td>
+              <td>361</td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td>H(9) = 1 + 5*9 = 46</td>
+              <td>70</td>
+              <td>-24</td>
+              <td>576</td>
+            </tr>
+            <tr>
+              <td colspan="4"><strong>Sum of squared differences</strong></td>
+              <td>1230</td>
+            </tr>
+            <tr>
+              <td colspan="4" style="background: #EEE;"><strong>Cost function J(1, 5)</strong></td>
+              <td style="background: #EEE;"><strong>123</strong></td>
+            </tr>
           </table>
+
+          <br/>
 
           <figure>Table 2: Calculating the cost function for h(x) = 3 + 11x</figure>
           <table>
@@ -390,151 +413,263 @@
           </thead>
             <tr>
               <td>5</td>
-              <td>26</td>
+              <td>h(5) = 3 + 11*5 = 58</td>
               <td>30</td>
-              <td>-4</td>
-              <td>16</td>
+              <td>-28</td>
+              <td>784</td>
             </tr>
             <tr>
               <td>6</td>
-              <td>31</td>
+              <td>h(6) = 3 + 11*6 = 69</td>
               <td>40</td>
-              <td>-9</td>
-              <td>81</td>
+              <td>-29</td>
+              <td>841</td>
             </tr>
             <tr>
               <td>7</td>
-              <td>36</td>
+              <td>h(7) = 3 + 11*7 = 80</td>
               <td>50</td>
-              <td>-14</td>
-              <td>196</td>
+              <td>-30</td>
+              <td>900</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>h(8) = 3 + 11*8 = 91</td>
+              <td>60</td>
+              <td>-31</td>
+              <td>961</td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td>h(9) = 3 + 11*9 = 102</td>
+              <td>70</td>
+              <td>-32</td>
+              <td>1024</td>
+            </tr>
+            <tr>
+              <td colspan="4"><strong>Sum of squared differences</strong></td>
+              <td>4510</td>
+            </tr>
+            <tr>
+              <td colspan="4" style="background: #EEE;"><strong>Cost function J(3, 11)</strong></td>
+              <td style="background: #EEE;"><strong>451</strong></td>
             </tr>
           </table>
 
           <p>
-            By going through this exercise, we have been able to show that J(1, 5) has a cost of 123.0 and that J(3,11) has a cost
-            of 451.0. We can new objectively assert that h(x) = 1 +5x is a better predictor for our observed
-            data than h(x) = 3 + 11x.
+            By going through this exercise, we've been able to objectively demonstrate that the hypothesis function <strong>h(x) = 1 + 5x</strong> with a
+            cost of 123 is in fact a quantifiably better predictor for this training set than the hypothesis function <strong>h(x) = 3 + 11x</strong> with a cost of 451.
           </p>
 
           <p>
-            Given a perfect predictor has a cost of 0, the data also suggests that there are more optimal values for Θ0 and Θ1.
-            As an exercise for the reader, find values for Θ0 and Θ1 that would be a better predictor than (1, 5) and run
-            through the exercise above to quantify how much better your function performs. Going through the exercise should
-            demonstrate that even though the cost function might look a bit intimidating, it’s quite easy to work with.
+            As an exercise for the reader, come up with values for Θ<sub>0</sub> and Θ<sub>1</sub> that would produce an even better predictor for this training set
+            then J(1, 5) and prove it by calculating the cost.
           </p>
 
           <p>
-            We now have the means to define our model and get feedback on its performance. The final step is to discover
-            the best performing model to act as the predictor for our data. In the next section we introduce the
-            gradient descent algorithm, which will provide us with the means to minimize J(Θ0, Θ1) efficiently.
+            The hypothesis function is used to model data, and the cost function is used to measure a model’s performance. In the final step of our journey,
+            we’ll introduce the gradient descent algorithm – a data-driven, algorithmic method to identify the <em>optimal model</em> for a training set.
           </p>
 
 
-          <h2>The Gradient Descent Algorithm: Use feedback to find the best predictor</h2>
+          <h2>The Gradient Descent Algorithm</h2>
 
           <p>
-            The gradient descent algorithm is a general purpose algorithm that has a number of practical applications
-            in machine learning. It has broad applicability in machine learning as the gradient descent algorithm provides
-            an efficient means to minimize functions. The cost function has provided us with the ability to quantify the
-            effectiveness of a model, and with that feedback the gradient descent algorithm will find the minimal cost for our
-            model – put simply, gradient descent will find the values of Θ0 and Θ1 that will act as the best predictor for
-            our model.
-          </p>
-
-          <p>
-            By the end of this section you should have a good understanding of how the gradient descent algorithm works, and
-            appreciate how the algorithm solves minimization problems.
+            The <strong>gradient descent algorithm</strong> has broad applicability in machine learning as it offers an efficient means to <em>minimize functions</em>. Linear regression uses gradient descent to
+            minimize the cost function <strong>J(Θ<sub>0</sub>,Θ<sub>1</sub>)</strong> and discovers optimal values Θ<sub>0</sub> and Θ<sub>1</sub>. Before we define the gradient descent algorithm, let’s gain an intuitive
+            understanding of how the algorithm works and an appreciation of its limitations.
           </p>
 
 
-          <h3>Intuitive Gradient Descent</h3>
+          <h3>The Gradient Descent Hiking Analogy</h3>
           <p>
-            Before we define the gradient descent algorithm, let’s first get an intuitive understanding of how the gradient descent
-            algorithm works and appreciate its limitations. The gradient descent algorithm is effective at finding local minima -
-            the smallest values of a function, in and around a local area of a function.
-          </p>
+            The gradient descent algorithm is very efficient at discovering <strong>local minima</strong> - the smallest value of a function in and around
+            a <em>local area</em> of a function. Discovering the local minima of a function is what ultimately yields us with the optimal values
+            for Θ<sub>0</sub> and Θ<sub>1</sub> - in other words, the local minima of a function represents the <em>solution</em> for linear regression.
+         </p>
+
           <p>
-            Figure 6 below presents a function with a couple examples of the gradient descent algorithm in action:
+            Figure 6 below will help you get a sense of what local minima are, and how the gradient descent algorithm
+            works to discover them.
           </p>
 
           <figure>Figure 6: The gradient descent algorithm - discovering minima by intuition</figure>
           <img src="images/chapter2/figure6.png"></img>
 
           <p>
-          Imagine this function is a mountain, and you’re standing where the green star is. A storm has rolled in, and visibility
-          is poor – you can only see a few steps in front of you. You need to head to the base of the mountain as soon as you
-          can to ride out the storm in safety.
-          </p>
-
-          <p>
-          How will you get down? The approach described below acts as a good analogy for the behavior of the gradient descent
-          algorithm.
+            Let’s assume that the function in figure 6 represents a side-on view of a mountain range; the green star represents your current location on
+            the mountain. You notice a storm rolling in, and visibility is getting poor – to ride out the storm in safety you quickly begin making your
+            way down to the base of the mountain. Let’s describe an approach to descend the mountain as a series of simple, logical steps:
           </p>
 
           <ol>
             <li>You look around, and find a new location that is lower than your current location.</li>
-            <li>You take a few steps in the direction of the new location and stop.</li>
-            <li>From the new location, you repeat steps 1 and 2 until you can no longer find a location that is lower; in this case you’ve reached (as far as you know) the base of the mountain – the green circle in the figure.</li>
+            <li>You take a number of steps in the direction of the new location.</li>
+            <li>Once you reach your new location, you repeat steps 1 and 2 until you can no longer find a location that is any lower. To the best of your knowledge, you’ve reached the base of the mountain, represented by the green circle in figure 6.</li>
           </ol>
 
           <p>
-          One thing you may have immediately noticed going through this exercise is that we did not reach the base of the
-          mountain when we started from the green star; this is an example of a local minimum. Had we started the same exercise
-          from the blue star, we would have reached the base of the mountain.
+            These three steps provide an intuitive representation of how the gradient descent algorithm works in practice. The green circle in figure 6
+            represents one of six local minima in the function – it’s the lowest point within a localized area of the function.
+          </p>
+
+          <h3>The Limitations of Gradient Descent</h3>
+          <p>
+            Had we started this same exercise from the blue star, we would have discovered an even smaller value, and consequently a more optimal solution than
+            we did starting from the green star.
           </p>
 
           <p>
-          The conclusion we can draw from this exercise is that the gradient descent algorithm is not well suited for minimizing
-          functions that have more than one local minima, since the result you receive would be highly dependent on your
-          initial starting position – you would never know if you truly minimized the function. The gradient descent
-          algorithm should only be used to minimize functions that have a single, global minima.
+            The conclusion we can draw from this exercise is that the gradient descent algorithm is not well suited for minimizing functions that have more than
+            one local minima, since the result is highly dependent on your initial starting position. You would never be certain if the algorithm found the
+            <em>optimal</em> values for Θ<sub>0</sub> and Θ<sub>1</sub> if the algorithm is run against functions with multiple local minima. Consequently, the gradient descent
+            algorithm should only be used to minimize functions that have a single, global minima. The linear regression cost function <em>does</em> have a single global
+            minima, so it’s well suited to be minimized by the gradient descent algorithm.
+          </p>
+
+          <h3>Visualizing the Topology of the Cost Function</h3>
+          <p>
+            The reasoning behind why linear regression cost functions produce a single global minima goes a bit beyond the scope of linear regression. However,
+            we are going to present a visualization of the cost function so you can appreciate the “terrain” that the gradient descent algorithm will traverse,
+            and provide you with some insight into what the visualization represents with a thought experiment.
+          </p>
+          <p>
+            In our introduction to the cost function, we went through a practical exercise to compute the cost of our hypothesis function with arbitrary values
+            for Θ<sub>0</sub> and Θ<sub>1</sub>. The results that we computed were as follows:
+          </p>
+          <p>
+            J(1, 5) = 123 <br/>
+            J(3, 11) = 451
           </p>
 
           <p>
-          The good news is that the linear regression cost function does have a single global minima, so it’s well suited to
-          be minimized by the gradient descent algorithm. We aren’t going to explain why linear regression cost functions
-          have a single global minima, but we are going to present a 3D visualization of the cost function as a function of
-          Θ0 and Θ1 so you can appreciate the actual terrain our gradient descent algorithm will traverse.
+            Let’s imagine plotting these two results on a graph - since we have three variables to plot (Θ<sub>0</sub>, Θ<sub>1</sub> and the cost), we need to plot this data on a 3D
+            graph. We place Θ<sub>0</sub> on the x axis, Θ<sub>1</sub> on the y axis, and the cost on the z axis – what we end up with is a visualization of cost <em>as a function of</em>
+            Θ<sub>0</sub> and Θ<sub>1</sub>. At this stage, the graph would consist 2 distinct points sitting in a 3D space.
           </p>
 
-          <figure>Figure 7: J(Θ0, Θ1) as a function of Θ0  and Θ1</figure>
+          <p>
+            Now, let’s assume that we have a lot of free time on our hands, and compute the cost function thousands of times, each with slightly different values
+            of Θ<sub>0</sub> and Θ<sub>1</sub> and plot these points on our 3D graph. As you plot this data, a distinct shape will begin to emerge; computing and plotting an
+            arbitrarily large number of these data points will inevitably reveal the concave structure in figure 7.
+          </p>
+
+          <figure>Figure 7: J(Θ<sub>0</sub>, Θ<sub>1</sub>) as a function of Θ<sub>0</sub> and Θ<sub>1</sub></figure>
           <img src="images/chapter2/figure7.png"></img>
 
           <p>
-            This graph presents cost J(Θ0, Θ1) as a function of both Θ0 and Θ1, and represents the actual topology that our
-            gradient descent algorithm will navigate - it’s pretty cool. In fact, all linear regression cost functions will end
-            up with this convex shape, which is why we can use the gradient descent algorithm to minimize linear regression cost
-            functions.
+            This graph presents cost J(Θ<sub>0</sub>, Θ<sub>1</sub>) as a function of Θ<sub>0</sub> and Θ<sub>1</sub>, and accurately represents the topology that
+            our gradient descent algorithm will navigate. All linear regression cost functions will end up producing this concave shape, which is why we can use the
+            gradient descent algorithm to minimize linear regression cost functions.
           </p>
 
           <p>
-            High areas shown in red represent high costs, and are consequently bad predictors. Low areas in shown in blue
-            represent low costs, and are consequently good predictors. The gradient descent algorithm will find the lowest point
-            on this graph, which also means that it will find the best predictor.
+            Areas shown in red represent high costs, and are consequently <em>bad predictors</em>. Areas shown in blue represent low costs, and are
+            consequently <em>good predictors</em>. The gradient descent algorithm will discover the local minima of the function, which will ultimately
+            discover the lowest cost and the best predictor – in other words, the optimal values for Θ<sub>0</sub> and Θ<sub>1</sub>.
           </p>
 
           <h3>The Gradient Descent Algorithm</h3>
 
           <p>
-            While the pseudo-algorithm for walking down a mountain was quite straightforward, transcribing this concept
-            algorithmically is a little less straightforward; we’ll break down the gradient descent algorithm and show that
-            it’s simply a formal representation of our intuition. The definition of the gradient descent algorithm is as follows:
+            So far we’ve described the gradient descent algorithm intuitively, as three simple steps to traverse down a mountain. We’ll now formalize
+            this intuition by introducing the gradient descent algorithm:
           </p>
 
-          Repeat until convergence, for j = 0 and j = 1 {
-              θ_j ∶= θ_j- α ∂/(∂θ_j ) J(θ_0,θ_1)
-          }
+          <p>repeat until convergence, for j = 0 and j = 1: { </p>
+          <div style="padding-left: 50px;">
+            $$ \theta_j := \theta_j - \alpha \frac{\partial}{\partial \theta_j} J(\theta_0, \theta_1) $$
+          </div>
+          <p style="margin-top: -15px;">}</p>
 
           <p>
-            There are a few new terms in the gradient descent algorithm to get your head around. Before we define these new terms,
-            Figure 8 presents the gradient descent algorithm with an overlay of the concepts and intuition in our mountain analogy;
-            this should help provide a bit of context around how the algorithm works in practice.
+            While this definition may initially seem unintuitive, we’ll work to demystify the gradient descent algorithm to show that it’s
+            simply a formal representation of our earlier intuition. Figure 8 below presents the gradient descent algorithm overlayed
+            with the concepts and intuition in our mountain hiking analogy; this should help provide some context around how the algorithm works in practice.
           </p>
 
           <figure>Figure 8: The gradient descent algorithm with an overlay of the mountain analogy</figure>
           <img src="images/chapter2/figure8.png"></img>
 
+          <p>Let’s review some of the new terms introduced in the gradient descent algorithm:</p>
+
+          <table>
+            <tr>
+              <td>$$ := $$</td>
+              <td><p style="margin: 0; padding: 0;">The expression :=  means <em>assignment</em>. The assignment ensures that we don’t lose reference to our current location as the algorithm iteratively converges towards the right solution.</p></td>
+            </tr>
+            <tr>
+              <td>$$ \alpha $$</td>
+              <td><p style="margin: 0; padding: 0;">This is the term <em>alpha</em>, also known as the <em>learning rate</em> and defines the size of the step you want to take. We will discuss the learning rate in detail shortly.</p></td>
+            </tr>
+            <tr>
+              <td>$$ \frac{\partial}{\partial \theta_j} J(\theta_0, \theta_1) $$</td>
+              <td><p style="margin: 0; padding: 0;">This term represents the <em>derivative</em> of the cost function and defines the direction of the steps you’re taking.  There’s a bit more to unpack here, and we’ll provide more insight about how this term works shortly.</p></td>
+            </tr>
+          </table>
+
+          <p>
+            The algorithm refers to repeating until convergence, for j = 0 and j = 1. What does this statement mean?
+          </p>
+
+          <p>
+            Put simply, when you take a step you’re moving some distance along the x axis (Θ<sub>0</sub>) and some distance along the y axis (Θ<sub>0</sub>).
+            The gradient descent algorithm needs a practical means to <em>capture</em> these x y coordinates so that the algorithm has a reference to where it currently
+            is, and where it needs to move.
+          </p>
+
+          <p>
+            The statement for <em>j = 0 and j = 1</em> is simply a <em>shorthand notation</em> used by the gradient descent algorithm to express the fact that
+            we need to capture and store these two distinct variables. Let’s express the definition of the gradient descent algorithm in a way that explicitly
+            tracks and records the x and y coordinates:
+          </p>
+
+          <p>repeat until convergence: { </p>
+          <div style="padding-left: 50px;">
+          $$ \theta_0 := \theta_0 - \alpha \frac{\partial}{\partial \theta_j} J(\theta_0, \theta_1) $$
+          $$ \theta_1 := \theta_1 - \alpha \frac{\partial}{\partial \theta_j} J(\theta_0, \theta_1) $$
+          </div>
+          <p style="margin-top: -15px;">}</p>
+
+          <p>
+            Let’s substitute the cost function term J(Θ<sub>0</sub>, Θ<sub>1</sub>) with the actual cost function that we defined in the previous section.
+            The gradient descent algorithm can now be expressed as:
+          </p>
+
+          <p>repeat until convergence: {</p>
+          <div style="padding-left: 50px;">
+            $$ \theta_0 := \theta_0 - \alpha \frac{\partial}{\partial \theta_0} \dfrac {1}{2m} \displaystyle \sum _{i=0}^m \left (\theta_0 + \theta_1x^{(i)} - y^{(i)} \right)^2 $$
+            $$ \theta_1 := \theta_1 - \alpha \frac{\partial}{\partial \theta_1} \dfrac {1}{2m} \displaystyle \sum _{i=0}^m \left (\theta_0 + \theta_1x^{(i)} - y^{(i)} \right)^2$$
+          </div>
+          <p style="margin-top: -15px;">}</p>
+
+          <p>
+            The last step in the development of our algorithm requires us to take partial derivatives of these functions, which requires some knowledge of
+            multivariate calculus. While you are more than welcome to work through the derivations yourself, we’ve worked through the derivations for you.
+          </p>
+
+          <p>repeat until convergence: { </p>
+          <div style="padding-left: 50px;">
+            $$ \theta_0 := \theta_0 - \alpha \dfrac {1}{m} \displaystyle \sum _{i=0}^m \left (\theta_0 + \theta_1x^{(i)} - y^{(i)} \right) $$
+            $$ \theta_1 := \theta_1 - \alpha \dfrac {1}{m} \displaystyle \sum _{i=0}^m \left (\theta_0 + \theta_1x^{(i)} - y^{(i)} \right)x^{(i)} $$
+          </div>
+          <p style="margin-top: -15px;">}</p>
+
+          <p>
+            It took a bit of effort to get here, but we’ve successfully developed our first machine learning algorithm! Implementing this algorithm will allow
+            you to predict the price of a home in Richmond far more accurately than our original best guess prediction that we made at the beginning of this chapter.
+          </p>
+
+          <p>
+            To close out our introduction to linear regression, we’ll describe convergence in gradient descent and learn how to manage <em>alpha</em>, the learning rate. For readers with a
+            programming background, these will be the last two pieces of information that you’ll need to implement this algorithm in software.
+          </p>
+
+          <h3>Convergence in Gradient Descent</h3>
+          <p>
+            In the definition of the gradient descent algorithm, we start with the statement <em>repeat until convergence</em>. In this section, we’ll define what
+            convergence means and provide you with some insight into how the derivative term in the gradient descent algorithm helps converge on an optimum solution.
+          </p>
 
           <div class="row mt-5">
             <div class="col-md-6 text-right pr-2"><a href="chapter01.html">&laquo; Chapter 1</a> &nbsp;&bull;</div>
